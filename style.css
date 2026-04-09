@@ -1,0 +1,2689 @@
+/* Links de las fuentes de importación de la Monserrat y la Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+
+    /* Colores generales */
+    --color-principal: #121212;
+    --color-fondo-hero: #1e1e1e;
+    --color-menu: rgba(18, 18, 18, 0.5);
+    --color-texto-gris: #cecece;
+    --acento-amarillo: #f2ff00;
+    --amarillo-transparente: #f2ff0070;
+    --sombra-neon-amarilla:
+        0 0 10px var(--acento-amarillo),
+        0 0 25px var(--acento-amarillo),
+        0 0 50px var(--acento-amarillo);
+
+    --fuente-titulos: 'Montserrat', sans-serif;
+    --fuente-textos: 'Inter', sans-serif;
+
+    /* Tamaño de los textos */
+    --texto-h1: 3.15rem;
+    --texto-h2: 2.35rem;
+    --texto-h3: 1.25rem;
+    --texto-h4: 1.05rem;
+    --texto-p: 0.88rem;
+    --texto-pequeno: 0.68rem;
+
+    /* Móvil */
+    --texto-h1-movil: 2rem;
+    --texto-h2-movil: 1.8rem;
+    --texto-h3-movil: 1.35rem;
+    --texto-p-movil: 0.62rem;
+
+    /* Tablet */
+    --texto-h1-tablet: 2.8rem;
+    --texto-h2-tablet: 2.1rem;
+    --texto-h3-tablet: 1.15rem;
+    --texto-p-tablet: 0.82rem;
+}
+
+
+/* ==========================================
+   ANIMACIONES (keyframes)
+   ========================================== */
+
+/* Animación de pulso neón para los botones principales (CTA) */
+@keyframes pulsoNeon {
+    0% {
+        box-shadow: 0 0 10px var(--acento-amarillo);
+    }
+
+    50% {
+        box-shadow: 0 0 25px var(--acento-amarillo), 0 0 45px var(--acento-amarillo);
+    }
+
+    100% {
+        box-shadow: 0 0 10px var(--acento-amarillo);
+    }
+}
+
+/* Animacion de entrada para el texto del hero (desde la izquierda) */
+@keyframes aparecerIzquierda {
+    from {
+        opacity: 0;
+        transform: translateX(-150px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+/* Animacion de entrada para la imagen del hero (desde la derecha) */
+@keyframes aparecerDerecha {
+    from {
+        opacity: 0;
+        transform: translateX(150px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+/* Animación del botón CTA */
+@keyframes cta-animation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animación del menú hamburguesa al desplegarse (móvil/tablet) */
+@keyframes menuDesplegarse {
+    from {
+        opacity: 0;
+        transform: translateX(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* Reseteo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+/* Estilos generales de la web*/
+body {
+    overflow-x: hidden;
+    /* si hay algo que se se sale del ancho, se esconde (par que no haya problemas en movil) */
+    color: white;
+    /* Fondo de toda la pagina animado */
+    background-image: url(./img/andrew-kliatskyi-CTt4F-bGZ34-unsplash.jpg);
+    object-fit: cover;
+    position: relative;
+}
+
+/* capa por encima del body negra transparente */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -100;
+}
+
+
+/* estilos a todos los h1 */
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Montserrat';
+}
+
+/* estilos a todos los p */
+p,
+span,
+a {
+    font-family: 'Inter';
+}
+
+/* estilos a todos los titulos de las secciones */
+.titulos-secciones {
+    font-size: var(--texto-h2);
+}
+
+/* estilos a todos los parrafos-introductorios */
+.parrafos-introductorios {
+    width: 80%;
+    margin: 1% auto;
+    text-align: center;
+    font-size: var(--texto-p);
+    color: var(--color-texto-gris);
+}
+
+/* Estilos a todos los h3 que van antes del titulo de cada sección*/
+.encabezados {
+    text-transform: uppercase;
+    color: var(--acento-amarillo);
+    margin-bottom: 0.5%;
+    font-size: var(--texto-p);
+    text-align: center;
+}
+
+/* estilos a todos los enlaces */
+a {
+    text-decoration: none;
+}
+
+/* Maquetación general */
+.contenido-index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Estilos al nav*/
+/* estilos al menu hamburguesa */
+.svg-menu-hamburguesa {
+    display: none;
+    /* en la versión escritorio no quiero que se vea */
+}
+
+.svg-menu-hamburguesa-cerrar {
+    display: none;
+}
+
+/* Estilos a la imagen del logo del menu*/
+.logo {
+    display: inline-block;
+    width: 96px;
+    height: 60px;
+    clip-path: circle(37.7% at 49% 51%);
+    /* forma de circulo */
+    transition: 0.5s all ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    /* le hacemos que crezca */
+}
+
+.container-menu {
+    position: sticky;
+    /* lo ponemos que este pegajoso */
+    top: 0;
+    /* lo ponemos anclado arriba del todo de la web*/
+    z-index: 1000;
+    /* y lo ponemos para que este siempre por encima de los demas elementos*/
+    border-radius: 20px;
+}
+
+.menu {
+    padding: 7px 12px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* alineación vertical */
+    backdrop-filter: blur(15px);
+    /* le damos el efecto borroso*/
+    border-radius: 0px 0 25px 25px;
+    /* radio del borde de la esquina izq y derecha*/
+    border-bottom: solid var(--acento-amarillo) 0.5px;
+}
+
+
+/* Estilos a la lista del menu*/
+.menu ul {
+    font-size: 0.92rem;
+    list-style-type: none;
+    display: flex;
+    gap: 45px;
+}
+
+/* Estilos a cada uno de los elementos de la lista anterior*/
+.menu ul li {
+    border: solid 1px var(--acento-amarillo);
+    border-radius: 20px;
+    transition: all 0.3s linear;
+}
+
+/* le damos estilos al enlace (a) para que el enlace funcione tanto al hacer clic en lo alto del texto como en el boton */
+.menu ul li a {
+    display: block;
+    padding: 10px 14px;
+    width: 100%;
+    height: 100%;
+}
+
+.boton-importante {
+    background-color: var(--acento-amarillo) !important;
+}
+
+/* estilos al pasar el cursor al los elementos del menu */
+.menu ul li:hover {
+    transform: scale(1.2);
+    /* le hacemos que crezca */
+    transition-duration: 0.3s;
+    /* la duración del transform*/
+}
+
+/* Estilos para el li en el que el usuario se encuentre en dicha página*/
+.activo {
+    background-color: var(--amarillo-transparente);
+}
+
+/* Estilos a los enlaces del menu */
+.pag-inicio,
+.pag-servicios {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.pag-formulario {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* Estilos al la seccion hero*/
+.hero {
+    margin: -10px;
+    background-color: #1e1e1e;
+    background: linear-gradient(135deg, #1e1e1e 60%, black 100%);
+    /* degradado que acaba abajo a la derecha */
+    min-height: 100vh;
+    padding: 20px 10px 65px 0px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    place-items: center;
+    clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 93%, 80% 96%, 50% 100%, 23% 96%, 0 93%, 0% 35%, 0 0);
+}
+
+
+
+/* Estilos a todos los textos de la sección hero*/
+.texto-hero {
+    width: 80%;
+    height: auto;
+    animation: aparecerIzquierda 2s ease;
+}
+
+/* Estilos al h1 de la sección hero */
+.texto-hero h1 {
+    font-size: var(--texto-h1);
+    margin-bottom: 22px;
+}
+
+/* Estilos al parrafo de la sección hero */
+.texto-hero p {
+    font-size: 1.2rem;
+}
+
+/* estilos al boton del hero */
+.container-btn-hero {
+    transition: 0.5s all linear;
+    width: auto;
+}
+
+.btn-hero {
+    display: inline-block;
+    box-shadow: var(--sombra-neon-amarilla);
+    background-color: var(--acento-amarillo);
+    border-radius: 20px;
+    padding: 12px 22px;
+    color: black;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 38px;
+    transition: 0.5s all ease;
+    animation: pulsoNeon 3s infinite ease-in-out;
+}
+
+.btn-hero:hover {
+    transform: rotate(-2deg) scale(1.05);
+    transition: 0.3s;
+}
+
+/* Estilos a las palabras que quiero que se destaquen */
+.resaltado {
+    color: var(--acento-amarillo);
+    font-weight: bold;
+}
+
+/* Estilos a las palabras "Team Rubén" */
+.team {
+    color: var(--acento-amarillo);
+    font-weight: bold;
+}
+
+.hero img {
+    width: 340px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 7px 5px 20px 3px var(--acento-amarillo);
+    transition: all 0.5s ease;
+}
+
+/* stilos al pasar el cursor por la imagen*/
+.hero img:hover {
+    transform: scale(1.03);
+}
+
+
+/* SECTION 1 - Nuestro Método */
+
+/* Animación de tarjetas */
+.tarjeta {
+    transition: 0.5s all ease;
+}
+
+
+/* tarjeta 1 */
+.t-1.oculto {
+    opacity: 0;
+    transform: translateX(-150px);
+    transition-delay: 0.1s;
+}
+
+.t-1.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* tarjeta 2 */
+.t-2.oculto {
+    opacity: 0;
+    transform: translateY(-150px);
+    transition-delay: 0.1s;
+}
+
+.t-2.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* tarjeta 3 */
+.t-3.oculto {
+    opacity: 0;
+    transform: translateX(150px);
+    transition-delay: 0.1s;
+}
+
+.t-3.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Estilos a la seccion 1 y 4*/
+.section1,
+.section4 {
+    margin-top: 2%;
+    text-align: center;
+    height: auto;
+}
+
+.titulo-section1 {
+    color: white;
+    text-align: center;
+}
+
+/* Estilos al contenedor de las tarjetas de la seccion 1 y 4 */
+.tarjetas,
+.container-experiencia {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 5% auto;
+}
+
+/* Tarjetas generales */
+.tarjeta,
+.tarjeta-experiencia {
+    background-color: var(--color-fondo-hero);
+    padding: 22px 20px;
+    margin: 0 auto;
+    width: 80%;
+    border: solid 1px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    border-radius: 25px;
+    transition: all 0.4s ease;
+}
+
+.tarjeta svg,
+.tarjeta-experiencia svg {
+    fill: var(--acento-amarillo);
+    background-color: transparent;
+    width: 75px;
+    height: 75px;
+    filter: drop-shadow(0 0 5px var(--acento-amarillo));
+}
+
+.tarjeta:hover,
+.tarjeta-experiencia:hover {
+    transform: translateY(-10px) scale(1.05);
+    border: solid 1px var(--acento-amarillo);
+    box-shadow: 0 15px 35px rgba(242, 255, 0, 0.15);
+}
+
+.tarjeta h3,
+.tarjeta-experiencia h3 {
+    font-size: var(--texto-h3);
+    text-align: center;
+    color: white;
+}
+
+.tarjeta p,
+.tarjeta-experiencia p {
+    font-size: 0.88rem;
+    text-align: center;
+    color: var(--color-texto-gris);
+}
+
+
+/* SECTION 2 - Servicios */
+
+/* estilos a la seccion 2*/
+.section2 {
+    padding: 2% 0;
+    background-color: var(--color-fondo-hero);
+    text-align: center;
+}
+
+.section2 img {
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+.section2 h3 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.section2 hr {
+    width: 55%;
+    border: solid 2px gray;
+    margin-bottom: 20px;
+}
+
+/* Estilos a Servicios */
+
+.tarjetas-servicios {
+    max-width: 85%;
+    margin: 2% auto;
+    display: grid;
+    gap: 35px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+}
+
+/* Tarjeta de asesorías 1:1 */
+.servicio-asesorias {
+    width: 80%;
+    margin: 0 auto;
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 2rem;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--color-fondo-hero);
+    border: solid 1px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    transition: 0.4s all ease;
+}
+
+.servicio-asesorias:hover {
+    border: solid 1px var(--acento-amarillo);
+    box-shadow: 0 15px 40px rgba(242, 255, 0, 0.2);
+    transform: scale(1.02);
+}
+
+.servicio-asesorias img {
+    width: 100%;
+    height: 420px;
+    max-height: 420px;
+    border-radius: 25px;
+}
+
+/* Texto de la tarjeta de asesoría */
+.servicio-tarjeta-texto {
+    margin-right: 3%;
+    text-align: right;
+    width: 50%;
+}
+
+.servicio-tarjeta-texto h3 {
+    font-size: 1.75rem;
+    text-align: right;
+}
+
+.servicio-tarjeta-texto hr {
+    margin-left: auto;
+}
+
+.servicio-tarjeta-texto p {
+    font-size: var(--texto-p);
+    margin-bottom: 3%;
+    color: var(--color-texto-gris);
+}
+
+/* Tarjetas de cursos especializados */
+.tarjeta-curso {
+    background-color: var(--color-fondo-hero);
+    border: solid 1px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+    transition: 0.4s all ease;
+}
+
+.tarjeta-curso img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center 28%;
+    border-radius: 25px 25px 0 0;
+    transition: 0.5s all ease;
+}
+
+.curso-3 img {
+    object-position: center;
+}
+
+.tarjeta-curso:hover img {
+    transform: scale(1.1);
+    transition: 0.4s ease;
+}
+
+.tarjeta-curso:hover {
+    border: solid 1px var(--acento-amarillo);
+    box-shadow: 0 15px 40px rgba(242, 255, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Estilos al texto de las tarjetas de los cursos*/
+.tarjeta-texto-curso {
+    padding: 16px 28px;
+    text-align: left;
+}
+
+.tarjeta-texto-curso h3 {
+    text-align: left;
+    font-size: var(--texto-h3);
+    margin-bottom: 5%;
+}
+
+.tarjeta-texto-curso p {
+    font-size: var(--texto-p);
+    color: var(--color-texto-gris);
+}
+
+
+.info-cuso {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5%;
+}
+
+.tarjeta-texto-curso svg {
+    width: 30px;
+    height: 30px;
+    fill: gray;
+}
+
+.tarjeta-texto-curso svg:last-of-type {
+    margin-left: 10%;
+}
+
+.precioBoton-curso {
+    margin-top: 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.precio-curso {
+    font-weight: bold;
+}
+
+.precio-curso p {
+    color: var(--acento-amarillo);
+    font-size: 1.2rem;
+}
+
+.precio-curso span {
+    color: var(--color-texto-gris);
+    font-size: var(--texto-p);
+    text-decoration: line-through;
+}
+
+/* Efectos de scroll */
+
+/* curso 1 */
+.curso-1.oculto {
+    opacity: 0;
+    transform: translateX(-150px);
+    transition: 2s all ease;
+    transition-delay: 0.1s;
+}
+
+.curso-1.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* curso 2 */
+.curso-2.oculto {
+    opacity: 0;
+    transform: translateY(-150px);
+    transition: 2s all ease;
+    transition-delay: 0.1s;
+}
+
+.curso-2.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* curso 3 */
+.curso-3.oculto {
+    opacity: 0;
+    transform: translateX(150px);
+    transition: 1s all ease;
+    transition-delay: 0.1s;
+}
+
+.curso-3.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.servicio-tarjeta-boton a {
+    display: block;
+    font-size: var(--texto-p);
+    color: black;
+    font-weight: bold;
+    background-color: var(--acento-amarillo);
+    border: 1px solid var(--acento-amarillo);
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: 0.5s all ease;
+}
+
+.servicio-tarjeta-boton a:hover {
+    transform: rotate(2deg) scale(1.05);
+    transition: 0.3s;
+}
+
+/* SECTION 3 - Testimonios / Carrusel */
+
+/* Estilos a los testimonios */
+.section3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+}
+
+.section3 h2 {
+    font-size: var(--texto-h2);
+    margin-bottom: 3%;
+}
+
+/* estilos al nombre de cada persona del cambio fisico */
+.testimoniosNombre {
+    margin-top: 2%;
+    font-size: 1.75rem;
+}
+
+.carrusel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.carrusel-ventana {
+    overflow: hidden;
+}
+
+.carrusel-testimonios {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.img-cambiosFisicos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--acento-amarillo);
+    border-radius: 20px;
+    background-color: var(--color-fondo-hero);
+    min-width: 100%;
+}
+
+.img-cambiosFisicos img {
+    background-color: var(--acento-amarillo);
+    border-radius: 10px;
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+}
+
+/* estilos a los botones del carrusel*/
+.carrusel-btn {
+    background-color: var(--acento-amarillo);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: 0.3s;
+    padding: 10px;
+}
+
+.carrusel-btn svg {
+    width: 30px;
+    height: 30px;
+}
+
+.carrusel-btn:hover {
+    transform: scale(1.1);
+}
+
+
+/* SECTION 4 - Mi Experiencia */
+
+/* Estilos a la seccion de "Mi Experiencia" */
+.section4 {
+    width: 100%;
+    padding-top: 2%;
+    padding-bottom: 0;
+    background-color: var(--color-fondo-hero);
+}
+
+.container-texto-experiencia {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--color-fondo-hero);
+}
+
+.container-texto-experiencia h3 {
+    font-size: 1.75rem;
+}
+
+.container-texto-experiencia p {
+    font-size: 1rem;
+}
+
+
+/* SECTION 5 - Planes / Precios */
+
+/* Estilos a las seccion 5*/
+.section5 {
+    width: 100%;
+    padding: 2% 0;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.titulo-section5 {
+    text-align: center;
+}
+
+/* Estilos a los 3 planes */
+.planes {
+    margin-top: 4%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    gap: 3.5rem;
+}
+
+.plan-1,
+.plan-2,
+.plan-3 {
+    background-color: var(--color-fondo-hero);
+    padding: 30px 18px;
+    border: solid 1px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    transition: 0.4s all ease;
+}
+
+/* estilos al pasar el cursor a los div de los planes*/
+.plan-1:hover,
+.plan-3:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(242, 255, 0, 0.25);
+    border: solid 1px var(--acento-amarillo);
+}
+
+/* estilos a los h3 de todas los div */
+.planes h3 {
+    text-transform: uppercase;
+    font-size: 1.75rem;
+}
+
+/* estilos a los h4 de todas los div */
+.planes h4 {
+    font-size: 1.9rem;
+    margin-bottom: 8px;
+}
+
+/* estilos al precio de todas los div */
+.precio {
+    font-size: 2.4rem;
+    color: var(--acento-amarillo);
+    text-shadow:
+        0 0 2px var(--acento-amarillo),
+        0 0 5px var(--acento-amarillo),
+        0 0 10px var(--acento-amarillo);
+}
+
+.planes hr {
+    border: solid 1.5px rgba(255, 255, 255, 0.1);
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.planes ul {
+    font-size: var(--texto-p);
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.planes ul li {
+    color: rgb(220, 220, 220);
+    font-family: var(--fuente-textos);
+    font-size: var(--texto-p);
+    margin: 15px auto;
+}
+
+/* estilos a los botones de los planes*/
+.btn-planes {
+    width: 80%;
+    margin: 8px auto;
+    padding: 12px 16px;
+    background-color: transparent;
+    font-weight: bold;
+    color: white;
+    font-size: 0.9rem;
+    border: solid 1px var(--acento-amarillo);
+    border-radius: 20px;
+    transition: 0.4s all ease;
+    cursor: pointer;
+}
+
+/* estilos al pasar el cursor en los botones */
+.btn-planes:hover {
+    background-color: var(--acento-amarillo);
+    color: black;
+    box-shadow: 0 0 15px var(--acento-amarillo);
+    transform: scale(1.05) rotate(-2deg);
+}
+
+/* Plan resaltado (Trimestral) */
+.plan-2 {
+    position: relative;
+    transform: scale(1.1);
+    border: 2px solid var(--acento-amarillo);
+    box-shadow: 0 15px 45px rgba(242, 255, 0, 0.3);
+}
+
+.etiqueta-plan {
+    font-family: var(--fuente-textos);
+    position: absolute;
+    top: -2.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--acento-amarillo);
+    color: black;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    box-shadow: 0 0 10px var(--acento-amarillo);
+}
+
+.plan-2:hover {
+    box-shadow: 0 20px 50px rgba(242, 255, 0, 0.4);
+    transform: scale(1.13) translateY(-10px);
+}
+
+
+/* SECTION 6 - Preguntas Frecuentes*/
+
+.section6 {
+    background-color: var(--color-fondo-hero);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos al titulo de la seccion 6*/
+.titulo-section6 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilos al svg de la seccion 6*/
+.titulo-section6 svg {
+    margin: 0 auto;
+    width: 65px;
+    fill: var(--acento-amarillo);
+}
+
+/* estilos a todas las preguntas de toda la seccion */
+.preguntas {
+    width: 70%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* estilo al contenedor donde se encuentra la pregunta y la respuesta */
+.container-pregunta {
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Estilos a los h3 de todos los titulos de preguntas */
+.titulo-preguntas h3 {
+    font-size: var(--texto-h3);
+}
+
+/* Estilos a todos los titulos de todas las preguntas "¿...?"*/
+.titulo-preguntas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border: 2px solid var(--acento-amarillo);
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: 0.2s all linear;
+}
+
+.titulo-preguntas:hover {
+    background-color: var(--color-fondo-hero);
+    transform: scale(1.02);
+    transition: 0.2s;
+}
+
+.titulo-preguntas.titulo-activo {
+    background-color: var(--acento-amarillo);
+    color: black;
+    transform: scale(1.02);
+    transition: 0.2s;
+}
+
+/* Estilos al icono +*/
+.icono-acordeon {
+    font-size: 1.6rem;
+}
+
+/* Estilos a las respuestas antes de darle a mostrar*/
+.respuestas {
+    display: none;
+    font-size: var(--texto-p);
+    font-family: var(--fuente-textos);
+    padding: 15px 20px;
+    background-color: var(--color-fondo-hero);
+    /* le ponemos border en la izq, derercha y abajo*/
+    border-bottom: solid 1px var(--acento-amarillo);
+    border-left: solid 1px var(--acento-amarillo);
+    border-right: solid 1px var(--acento-amarillo);
+    border-radius: 10px;
+}
+
+/* Estilos a las respuesta cuando se muestren*/
+.respuestas.mostrar {
+    display: block;
+}
+
+/* Estilos generales a las secciones que tienen el fondo de color gris */
+.section2,
+.section4,
+.section6 {
+    padding: 2% 0;
+}
+
+/* CTA*/
+
+/* Estilos al CTA "¿Listo para empezar una vez por todas?"*/
+.cta {
+    width: 100%;
+    background-color: var(--acento-amarillo);
+    box-shadow:
+        0 0 10px var(--acento-amarillo),
+        0 0 25px var(--acento-amarillo),
+        0 0 50px var(--acento-amarillo);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 16px;
+    color: black;
+}
+
+.cta h2 {
+    text-align: center;
+}
+
+.cta h3 {
+    font-size: var(--texto-h3);
+    text-align: center;
+}
+
+.cta a {
+    padding: 11px 20px;
+    border: solid 3px var(--acento-amarillo);
+    background-color: black;
+    border-radius: 20px;
+    color: var(--acento-amarillo);
+    font-size: 1rem;
+    font-weight: bold;
+    animation: cta-animation 2s infinite;
+}
+
+
+/* BOTÓN VOLVER ARRIBA */
+
+/* Estilos al boton para volver arriba de la página */
+#btn-arriba {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+    background-color: var(--acento-amarillo);
+    padding: 8px;
+    width: 56px;
+    height: 56px;
+    border: solid 3px black;
+    border-radius: 16px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s linear;
+}
+
+/* estilos al pasar el cursor por el boton */
+#btn-arriba:hover {
+    transform: scale(1.1);
+}
+
+/* estilos al boton cuando aparezca (clase puesta en js) */
+.btn-volverArriba-aparecer {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+
+/* FOOTER */
+
+/* Estilos al footer */
+footer {
+    padding: 65px 0 22px;
+    background-color: var(--color-fondo-hero);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    clip-path: polygon(50% 30%, 100% 13%, 100% 35%, 100% 70%, 100% 100%, 50% 100%, 0 100%, 0% 70%, 0% 35%, 0 13%);
+}
+
+footer h2 {
+    text-align: left;
+}
+
+/* estilos al contendor de lso iconos de las redes sociales */
+.rrss {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+/* estilos a cada uno de los iconos */
+.redes-sociales {
+    width: 27px;
+    height: 27px;
+    fill: white;
+    transition: 0.3s all ease;
+}
+
+.redes-sociales:hover {
+    fill: var(--acento-amarillo);
+    transform: translateY(-5px);
+}
+
+footer ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+footer p {
+    font-size: var(--texto-p);
+}
+
+footer a {
+    color: var(--acento-amarillo);
+}
+
+footer a:hover {
+    color: var(--color-texto-gris);
+}
+
+
+/* ESTILOS A LA PÁGINA FORMULARIO */
+.hero-formulario {
+    background: radial-gradient(circle, rgba(18, 18, 18, 1) 0%, rgba(30, 30, 30, 1) 100%);
+    /* fondo con un degradado sacado de "https://cssgradient.io/ */
+    width: 100%;
+    height: 85vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 93%, 80% 96%, 50% 100%, 23% 96%, 0 93%, 0% 35%, 0 0);
+}
+
+.hero-formulario h1 {
+    font-size: var(--texto-h1);
+}
+
+.hero-formulario h3 {
+    font-size: var(--texto-h3);
+}
+
+.hero-formulario p {
+    margin-top: 1%;
+    font-size: var(--texto-p);
+}
+
+/* Estilos a todo el contenido de la pagina formulario */
+.contenido-formulario {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.contenido-formulario img {
+    width: 80%;
+    border-radius: 20px;
+    border: solid 2px var(--acento-amarillo);
+    transition: 0.5s all ease-in;
+}
+
+.contenido-formulario img:hover {
+    box-shadow: var(--sombra-neon-amarilla);
+}
+
+
+
+
+/* Estilos al formulario */
+.container-formulario {
+    background-color: var(--color-fondo-hero);
+    border-radius: 20px;
+    border: solid 2px gray;
+    padding: 24px 32px;
+    transition: 0.5s all ease;
+}
+
+.container-formulario:hover {
+    border: solid 2px var(--acento-amarillo);
+    transition: 0.2s all ease-in;
+}
+
+.container-formulario label {
+    font-size: var(--texto-p);
+    font-family: var(--fuente-textos);
+    font-weight: bold;
+}
+
+#miFormulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.campos {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.mensaje-info-formulario {
+    margin-bottom: 3%;
+    text-align: center;
+    color: var(--color-texto-gris);
+}
+
+/* estilos a todos los inputs, select y text areas tanto en normal como cuando esta válido*/
+.container-formulario input,
+.container-formulario select,
+.container-formulario textarea,
+.container-formulario input:valid,
+.container-formulario select:valid,
+.container-formulario textarea:valid {
+    background-color: black;
+    width: 100%;
+    color: var(--color-texto-gris);
+    font-size: var(--texto-p);
+    padding: 15px;
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+
+/* estilos a todos los placeholders*/
+.container-formulario input::placeholder,
+.container-formulario select::placeholder,
+.container-formulario textarea::placeholder {
+    color: gray;
+    font-size: var(--texto-p);
+}
+
+/* estilos a todos los inputs, selects y textareas cuando se hace clic en el*/
+.container-formulario input:focus,
+.container-formulario select:focus,
+.container-formulario textarea:focus {
+    outline: none;
+    /* quita el border predeterminado del navegador */
+    border-color: var(--acento-amarillo);
+}
+
+/* Estilos al boton de enviar */
+.btn-formulario {
+    text-align: center;
+}
+
+.btn-formulario button {
+    background-color: var(--acento-amarillo);
+    color: black;
+    border-radius: 20px;
+    border: none;
+    padding: 16px 32px;
+    font-family: var(--fuente-titulos);
+    font-size: 1.35rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s all ease;
+}
+
+.btn-formulario button:hover {
+    box-shadow: var(--sombra-neon-amarilla);
+    border: none;
+    transform: scale(1.05) rotate(-1deg);
+    transition: 0.3s all ease;
+}
+
+.mensaje-formulario {
+    display: block;
+    color: var(--acento-amarillo);
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+/* Estilos a la pagina de servicios */
+.hero-servicios {
+    position: relative;
+    height: 80vh;
+    background-image: url(./img/imgFondo-hero-servicios.png);
+    background-position: center 70%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 93%, 80% 96%, 50% 100%, 23% 96%, 0 93%, 0% 35%, 0 0);
+}
+
+/* Capa por encima negra */
+.hero-servicios:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.contenido-hero-servicios {
+    z-index: 10;
+    /* para que quede por encima de la capa negra*/
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.contenido-servicios h1 {
+    font-size: var(--texto-h1);
+}
+
+.contenido-servicios h2 {
+    font-size: var(--texto-h2)
+}
+
+.contenido-servicios h3 {
+    font-size: var(--texto-h3);
+}
+
+.contenido-servicios h4 {
+    font-size: var(--texto-h4);
+}
+
+.contenido-servicios p {
+    font-size: var(--texto-p);
+}
+
+/* Maquetación de las secciones de la pagina de los servicios */
+.secciones-servicios {
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 0;
+}
+
+.asesoria {
+    margin: 3% auto;
+    width: 90%;
+
+}
+
+.contenedor-titulo-servicios {
+    margin-bottom: 3%;
+    text-align: center;
+}
+
+.contenedor-titulo-servicios h3 {
+    text-align: center;
+}
+
+.contenedor-titulo-servicios p {
+    color: var(--color-texto-gris);
+    font-weight: bold;
+}
+
+.contenido-asesoria {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.contenido-asesoria h3 {
+    text-align: center;
+}
+
+.contenedor-incluido-asesoria {
+    margin-top: 2%;
+    padding-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
+}
+
+.incluido-asesoria {
+    background-color: var(--color-fondo-hero);
+    border-left: var(--acento-amarillo) 8px solid;
+    border-radius: 25px;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.incluido-asesoria h4 {
+    text-align: center;
+    margin: 5% 0;
+}
+
+.incluido-asesoria p {
+    color: var(--color-texto-gris);
+}
+
+.incluido-asesoria svg {
+    fill: var(--acento-amarillo);
+    display: flex;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+}
+
+.container-svg-asesoria {
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilos a los Cursos */
+
+/* estilos a las pestañas de los cursos */
+
+/* estilos al contenedor de las pestañas */
+.pestañas-cursos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 2% 0 0;
+}
+
+/* estilos a cada una de las pestañas*/
+.pestaña-curso {
+    padding: 9px 22px;
+    background: transparent;
+    border: 2px solid var(--acento-amarillo);
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: var(--fuente-textos);
+    font-size: var(--texto-p);
+    transition: all 0.5s ease;
+}
+
+.pestaña-curso:hover {
+    background-color: var(--amarillo-transparente);
+    transform: rotate(-2deg) scale(1.05);
+}
+
+/* estilos a cada una de las pestañas cuando esten activas (es decir cuando el usuario seleccione una pestaña para mostrar el contenido del curso que quiera)*/
+.pestaña-curso.visible {
+    background: var(--acento-amarillo);
+    color: black;
+    font-weight: bold;
+}
+
+/* Estilos a los articulos de los cursos (el contenido de cada curso)*/
+
+.curso-perdidaGrasa.visible,
+.curso-ganancia-de-masa-muscular.visible,
+.curso-nutrición.visible {
+    display: block;
+    /* se ve cuando el js le ponga la clase .activo */
+}
+
+
+/* Estilos a los cursos */
+.curso-perdidaGrasa,
+.curso-ganancia-de-masa-muscular,
+.curso-nutrición {
+    display: none;
+    padding: 3% 0;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+/* Estilos a los h3 de los 3 cursos*/
+.curso-perdidaGrasa h3,
+.curso-ganancia-de-masa-muscular h3,
+.curso-nutrición h3 {
+    text-align: center;
+    font-size: var(--texto-h2);
+    margin-bottom: 2%;
+}
+
+/* Estilo a la sección de los servicios de los cursos */
+
+/* estilos a seccion de los cursos */
+
+.servicio.cursos {
+    background-color: var(--color-fondo-hero);
+    width: 100%;
+}
+
+.contenido-servicio-cursos {
+    padding-top: 2%;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* estilos al contendor en que estan dentro todos los modulos de cada curso */
+.modulos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 50px;
+}
+
+/* Estilo a cada modulo */
+.modulo {
+    background-color: var(--color-fondo-hero);
+    border: solid 2px var(--color-texto-gris);
+    border-radius: 25px;
+    padding: 16px 28px;
+    transition: 0.5s all ease;
+}
+
+.modulo h4,
+.modulo p {
+    transition: 0.5s all ease;
+}
+
+.modulo:hover {
+    border: solid 2px var(--acento-amarillo);
+    box-shadow: 0px 0px 15px 0px rgba(242, 255, 0, 0.3);
+}
+
+.modulo:hover h4 {
+    color: var(--acento-amarillo);
+}
+
+.modulo:hover p {
+    color: var(--color-texto-gris);
+}
+
+.modulo-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-dossierCursos-pdf {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+}
+
+.container-dossierCursos-pdf button {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: var(--acento-amarillo);
+    padding: 10px 20px;
+    font-size: var(--texto-h3);
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s all ease;
+    color: black !important;
+}
+
+.container-dossierCursos-pdf button:hover {
+    transform: scale(1.03) translateY(-2px);
+    box-shadow: 0px 0px 15px 0px rgba(242, 255, 0, 0.3);
+}
+
+.container-dossierCursos-pdf a {
+    color: black !important;
+
+}
+
+/* ESTILOS PARA EL POPUP PARA DESCARGAR EL GLOSSIER*/
+
+/* ── POPUP DOSSIER ── */
+
+/* estilos al todo el popup*/
+.contenedor-dossier {
+    display: flex;
+
+    /* para ponerlo al centro de la pantlla */
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    /* lo ponemos por encima de todo */
+    backdrop-filter: blur(5px);
+    /* fondo borroso */
+    display: none;
+}
+
+/* estilos al dosier cuando aparezca */
+.contenedor-dossier.abierto {
+    display: flex;
+}
+
+
+/* estilos a lo de dentro del popup */
+.popup-dossier {
+    background-color: var(--color-fondo-hero);
+    border-radius: 25px;
+    border: 2px solid gray;
+    display: inline-block;
+    padding: 12px 28px;
+}
+
+/* estilos al contenedor boton de cerrar el boton */
+.contenedor-btn-cerrarDossier {
+    text-align: right;
+}
+
+/* estilos al boton de cerrar el boton */
+.cerrar-popup {
+    color: var(--color-texto-gris);
+    background-color: transparent;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 5px 15px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s all ease;
+}
+
+.cerrar-popup:hover {
+    color: var(--acento-amarillo);
+    transform: scale(1.05);
+}
+
+/* Estilos al h3 del popup */
+.popup-dossier h3 {
+    font-size: var(--texto-h3);
+}
+
+.popup-dossier p {
+    color: var(--color-texto-gris);
+    font-size: var(--texto-p);
+    margin-bottom: 5%;
+}
+
+/* Estilos al formulario del poup */
+.campo-popup {
+    margin-bottom: 2%;
+}
+
+.campo-popup input {
+    background-color: var(--color-principal);
+    border: 2px solid gray;
+    border-radius: 10px;
+    width: 100%;
+    padding: 17px;
+    color: var(--color-texto-gris);
+    font-family: var(--fuente-textos);
+    font-size: var(--texto-p);
+}
+
+/* Estilos para cuando se rellene los campos con las opciones que hayas puesto anteriormente (el autocompletado de cosas que ya has rellenado) */
+.campo-popup input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px var(--color-principal) inset !important;
+    -webkit-text-fill-color: var(--color-texto-gris) !important;
+}
+
+.campo-popup input::placeholder {
+    font-size: var(--texto-p);
+}
+
+/* Estilos al boton de enviar el formulario */
+.btn-enviar-dossier {
+    display: block;
+    background-color: var(--acento-amarillo);
+    margin: 7% auto 0;
+    padding: 8px 16px;
+    font-size: var(--texto-h3);
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 1s all ease;
+    color: black;
+}
+
+.btn-enviar-dossier:hover {
+    box-shadow: var(--sombra-neon-amarilla);
+    border: none;
+    transform: scale(1.1) rotate(-1deg);
+    transition: 0.5s all ease;
+}
+
+
+/* Estilos a los mensajes al enviar el formulario del dossier */
+.popup-mensaje {
+    font-size: 0.72rem;
+    margin-top: 3%;
+    min-height: 20px;
+    text-align: center;
+}
+
+.popup-mensaje.exito {
+    color: var(--acento-amarillo);
+}
+
+.popup-mensaje.error {
+    color: #ff4d4d;
+}
+
+
+
+/* ESTILOS DEL AVISO LEGAL*/
+
+.header-legal {
+    background-color: var(--color-fondo-hero);
+    margin-bottom: 5%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 16px;
+}
+
+.header-legal h1 {
+    font-size: var(--texto-h1);
+}
+
+.contenido-legal {
+    background-color: var(--color-fondo-hero);
+    box-shadow: 0px 0px 16px 2px var(--color-texto-gris);
+    padding: 5%;
+    width: 60%;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.contenido-legal h3 {
+    font-size: var(--texto-h3);
+    margin-top: 2%;
+}
+
+.contenido-legal h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1%;
+}
+
+.contenido-legal p,
+.contenido-legal ul {
+    color: rgb(216, 216, 216);
+    font-size: var(--texto-p);
+    font-family: var(--fuente-textos);
+}
+
+.contenido-legal ul {
+    margin: 1% 4%;
+}
+
+
+/* Estilos al boton de volver a la página de inicio */
+.btn-volver-inicio a {
+    font-weight: bold;
+    color: var(--acento-amarillo);
+    font-size: var(--texto-p);
+    transition: 0.3s all ease;
+}
+
+.btn-volver-inicio a:hover {
+    color: var(--color-texto-gris);
+    text-decoration: underline;
+}
+
+/* RESPONSIVE MÓVIL */
+
+@media (max-width: 768px) {
+
+    /* --- GENERAL --- */
+
+    h1 {
+        font-size: var(--texto-h1-movil) !important;
+    }
+
+    h2 {
+        font-size: var(--texto-h2-movil) !important;
+    }
+
+    /* estilos al titulos de todas las secciones */
+    .titulos-secciones {
+        width: 95%;
+        margin: 0 auto;
+        text-align: center !important;
+    }
+
+
+    /* --- MENÚ --- */
+
+    /* Estilos al menu */
+    .container-menu {
+        width: 100%;
+        position: sticky;
+    }
+
+    /* Ocultamos el menu de la version escritorio */
+    .menu-paginas {
+        display: none;
+        opacity: 0;
+    }
+
+    .logo {
+        width: auto;
+        max-width: 100px;
+    }
+
+    /* Ponemos visible el menu que quiero mostrar en el movil */
+    .menu-paginas-abierto {
+        display: block;
+        opacity: 1;
+        width: 70%;
+        height: 100vh !important;
+        position: absolute;
+        /* lo ponemos en absoluto respecto al padre que esta en posicion relativa */
+        top: 0;
+        right: 0;
+        z-index: 100;
+        animation: menuDesplegarse 0.5s ease forwards;
+    }
+
+    .svg-menu-hamburguesa,
+    .svg-menu-hamburguesa-cerrar.hamburguesaCerrar-visible {
+        fill: white;
+        display: block;
+        width: 60px;
+        height: 60px;
+        z-index: 101;
+    }
+
+    .svg-menu-hamburguesa-cerrar.hamburguesaCerrar-visible {
+        animation: menuDesplegarse 0.5s ease forwards;
+    }
+
+    .svg-menu-hamburguesa.hamburguesa-no-visible {
+        display: none;
+    }
+
+    .svg-menu-hamburguesa-cerrar {
+        display: none;
+
+    }
+
+
+
+    .menu {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    .menu-paginas-abierto ul {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-fondo-hero);
+        padding: 70px 15px;
+        border: var(--acento-amarillo) solid 1px;
+        border-radius: 10px;
+        width: 100%;
+        height: 100vh;
+        z-index: 1000;
+    }
+
+    .menu-paginas-abierto ul li {
+        display: inline-block;
+        border: none;
+        text-align: right;
+        width: 100%;
+        background-color: transparent;
+    }
+
+    .menu-paginas-abierto ul li:last-of-type {
+        display: inline-block;
+        width: auto;
+        align-self: flex-end;
+
+    }
+
+    .menu-paginas-abierto ul li:hover {
+        transform: none;
+        /* le quitamos el hover en el movil ya que no se ve */
+    }
+
+
+
+    /* --- HERO --- */
+
+    /* Estilos al hero */
+    .hero {
+        height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 0.5fr;
+    }
+
+    .hero h1 {
+        font-size: var(--texto-h1-movil);
+    }
+
+    .hero img {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        height: auto;
+    }
+
+    .hero img:hover {
+        transform: scale(1);
+    }
+
+    .container-btn-hero {
+        margin: 10% auto;
+        transition: 0.5s all linear;
+        display: block;
+    }
+
+    .container-btn-hero:hover {
+        transform: scale(1.05);
+        transition: 0.5s;
+    }
+
+    .btn-hero {
+        box-shadow: var(--sombra-neon-amarilla);
+        background-color: var(--acento-amarillo);
+        border-radius: 20px;
+        padding: 15px 25px;
+        color: black;
+        font-weight: bold;
+        font-size: var(--texto-p);
+        margin-top: 50px;
+    }
+
+    /* --- SECTION 1 - Nuestro Método --- */
+
+    /* Estilos de scroll a la section 1*/
+    .t-1.oculto,
+    .t-3.oculto,
+    .curso-1.oculto,
+    .curso-3.oculto {
+        transform: translateX(-150px);
+    }
+
+    .t-1.visible,
+    .t-3.visible,
+    .curso-1.visible,
+    .curso-3.visible {
+        transform: translateX(0);
+    }
+
+    .t-2.oculto,
+    .curso-2.oculto {
+        transform: translateX(150px);
+    }
+
+    .t-2.visible,
+    .curso-2.visible {
+        transform: translateX(0);
+    }
+
+    /* Estilos a las tarjetas de la seccion 1*/
+    .tarjetas {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        height: auto;
+        width: 100%;
+    }
+
+    /* Estilos a todos los Parrafos introductorios de cada seccion  */
+    .parrafos-introductorios {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    /* --- SECTION 2 - Servicios (Inicio) --- */
+
+    /* Estilos a la seccion 2 */
+    .tarjetas-servicios {
+        margin-top: 5%;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .servicio-asesorias {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: space-around;
+        flex-basis: 40%;
+        align-items: center;
+        border: solid 1px var(--acento-amarillo);
+        padding: 15px 20px;
+        border-radius: 20px;
+    }
+
+    .img-div1 img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        object-position: center 28%;
+        border-radius: 25px;
+    }
+
+    .servicio-tarjeta-texto {
+        text-align: center;
+        width: 90%;
+    }
+
+    .servicio-tarjeta-texto h3 {
+        text-align: center;
+        font-size: var(--texto-h3);
+    }
+
+    .servicio-tarjeta-texto hr {
+        margin: 0 auto;
+        margin-bottom: 5%;
+    }
+
+    .servicio-tarjeta-texto p {
+        margin-bottom: 10%;
+    }
+
+    .info-cuso p {
+        font-size: var(--texto-pequeno);
+    }
+
+    /* --- SECTION 3 - Carrusel --- */
+
+    /* Estilos al carrusel */
+    .carrusel {
+        width: 100%;
+    }
+
+    .img-cambiosFisicos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid var(--acento-amarillo);
+        border-radius: 20px;
+        background-color: var(--color-fondo-hero);
+        min-width: 100%;
+    }
+
+    .img-cambiosFisicos img {
+        background-color: var(--acento-amarillo);
+        border-radius: 10px;
+        width: 95%;
+        object-fit: cover;
+    }
+
+    /* --- SECTION 4 - Mi Experiencia --- */
+
+    /* Estilos a la seccion "MI experiencia"*/
+    .section4 {
+        height: auto;
+    }
+
+    .contenido-index {
+        overflow-x: clip;
+    }
+
+    .container-experiencia {
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+        width: 90%;
+    }
+
+    .section1,
+    .section2,
+    .section4 {
+        overflow-x: hidden;
+    }
+
+    /* --- SECTION 5 - Planes --- */
+
+    /* Estilos a los planes */
+    .section5 {
+        margin: 0 auto;
+        text-align: center;
+        height: auto;
+    }
+
+    .planes {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        gap: 20px;
+        width: 85%;
+        margin: 5% auto;
+    }
+
+    .plan-2 {
+        transform: scale(1);
+    }
+
+
+    /* --- SECTION 6 - Preguntas Frecuentes --- */
+
+    /* Estilos a la seccion de preguntas frecuentes */
+    .preguntas {
+        width: 85%;
+        margin: 5% 0;
+    }
+
+    .titulo-section6 h2 {
+        text-align: center;
+    }
+
+    /* --- CTA --- */
+
+    /* Estilos al CTA */
+    .cta h2 {
+        font-size: var(--texto-h2-movil);
+    }
+
+    .cta h3 {
+        font-size: var(--texto-h3-movil);
+    }
+
+    /* --- PÁGINA FORMULARIO --- */
+
+    /* Responsive del Formulario */
+    .hero-formulario h1 {
+        font-size: var(--texto-h1-movil);
+    }
+
+    .hero-formulario h2 {
+        font-size: var(--texto-h2-movil);
+    }
+
+    #miFormulario {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .contenido-formulario {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .img-formulario img {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .container-formulario {
+        padding: 30px 15px;
+        width: 100%;
+    }
+
+    .btn-formulario button {
+        margin-top: 5%;
+        font-size: 1.05rem;
+    }
+
+    /* --- PÁGINA SERVICIOS --- */
+
+    /* Estilos a la página de Servicios */
+
+    .contenido-servicios {
+        width: 100%;
+    }
+
+    .hero-servicios {
+        height: 80vh;
+    }
+
+    .contenedor-incluido-asesoria {
+        overflow-x: hidden;
+        margin: 0 auto;
+        width: 100% !important;
+        grid-template-columns: 1fr;
+    }
+
+    .contenido-asesoria {
+        width: 100%;
+    }
+
+    .contenido-asesoria h3 {
+        margin: 5% 0 3% 0;
+        /* margen arriba y abajo */
+    }
+
+    .secciones-servicios {
+        display: block;
+        width: 100%;
+    }
+
+    .modulos {
+        grid-template-columns: 1fr;
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    .contenedor-titulo-servicios {
+        width: 95%;
+        margin: 2% auto;
+    }
+
+    .container-dossierCursos-pdf {
+        margin: 5% 0;
+    }
+
+    /* estilos a las 3 pestañas para cambiar entre los distisntos cursos */
+    .pestañas-cursos {
+        width: 95%;
+        flex-direction: column;
+        margin: 5% auto 3% auto;
+    }
+
+    .contenido-curso h3 {
+        font-size: var(--texto-h3-movil);
+    }
+
+    /* --- PÁGINAS LEGALES --- */
+
+    /* Estilos a las paginas LEGALES */
+    .contenido-legal {
+        width: 90%;
+    }
+
+    /* --- FOOTER --- */
+
+    /* Estilos responsives al footer */
+    footer p {
+        text-align: center;
+        margin-top: 15%;
+    }
+
+    footer ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+/* RESPONSIVE TABLET */
+
+@media (min-width: 768px) and (max-width: 1280px) {
+
+    /* Estilos generales */
+    h1 {
+        font-size: var(--texto-h1-tablet);
+    }
+
+    p,
+    li,
+    a {
+        font-size: var(--texto-p-tablet);
+    }
+
+    h2 {
+        font-size: var(--texto-h2-tablet);
+    }
+
+    h3 {
+        font-size: var(--texto-h3-tablet);
+    }
+
+    .container-titulos-sections {
+        width: 100%;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .container-titulos-sections p {
+        width: 95%;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    /* Estilos al menu */
+    .svg-menu-hamburguesa {
+        fill: white;
+        display: block;
+        width: 60px;
+        height: 70px;
+    }
+
+    .logo {
+        width: auto;
+    }
+
+    .svg-menu-hamburguesa-cerrar {
+        display: none;
+    }
+
+    .menu-paginas {
+        display: none;
+        opacity: 0;
+    }
+
+
+    .menu {
+        padding-left: 5%;
+        padding-right: 5%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    .menu-paginas-abierto {
+        display: block;
+        opacity: 1;
+        position: absolute;
+        top: 100px;
+        right: 5%;
+        z-index: 10;
+    }
+
+    .menu-paginas-abierto ul {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-fondo-hero);
+        padding: 18px 15px;
+        border: var(--acento-amarillo) solid 1px;
+        border-radius: 10px;
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+        animation: menuDesplegarse 0.5s ease forwards;
+        /* animación definida en la versión movil*/
+
+    }
+
+    .menu-paginas-abierto ul li {
+        font-size: var(--texto-p-movil);
+        text-align: right;
+        width: 100%;
+        border: 0;
+        background-color: transparent;
+    }
+
+    /* Estilos al hero */
+    .hero {
+        height: auto;
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: var(--texto-h1-tablet);
+    }
+
+    .hero img {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        width: 60%;
+        height: auto;
+    }
+
+    .container-btn-hero {
+        margin: 3% auto 5%;
+        transition: 0.5s all linear;
+        display: block;
+    }
+
+    .btn-hero {
+        box-shadow: var(--sombra-neon-amarilla);
+        background-color: var(--acento-amarillo);
+        border-radius: 20px;
+        padding: 15px 25px;
+        color: black;
+        font-weight: bold;
+        margin-top: 50px;
+    }
+
+    /* Estilos a las tarjetas de la seccion 1*/
+    .tarjetas {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        height: auto;
+        max-width: 90%;
+    }
+
+    /* Estilos a los servicios */
+    .tarjetas-servicios img,
+    .servicio-asesorias img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+    }
+
+    .tarjeta-curso {
+        height: auto;
+        align-self: start;
+    }
+
+    .servicio-tarjeta {
+        align-self: flex-start;
+        width: 85%;
+        margin: 0 auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tarjetas-servicios {
+        margin-top: 5%;
+        grid-template-columns: 1fr;
+    }
+
+    .servicio-asesorias {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: space-around;
+        flex-basis: 40%;
+        align-items: center;
+        border: solid 1px var(--acento-amarillo);
+        padding: 15px 20px;
+        border-radius: 20px;
+    }
+
+    .servicio-tarjeta-texto {
+        margin: 0 auto;
+        text-align: center !important;
+        width: 90%;
+    }
+
+    .servicio-tarjeta-texto h3 {
+        text-align: center !important;
+    }
+
+    .servicio-tarjeta-texto hr {
+        margin: 0 auto 2%;
+    }
+
+    /* Estilos a la seccion "MI experiencia"*/
+    .container-experiencia {
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+        width: 80%;
+    }
+
+    .section2,
+    .section4,
+    .section6 {
+        padding-top: 5%;
+    }
+
+    /* Estilos a los planes */
+    .planes {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        width: 60%;
+        margin: 5% auto;
+    }
+
+    /* Estilos a la seccion de preguntas frecuentes */
+    .preguntas {
+        width: 85%;
+        margin: 5% 0 0;
+    }
+
+    /* Estilos al CTA */
+    .cta {
+        width: 100%;
+    }
+
+    /* Responsive del Formulario */
+    .contenido-formulario {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .btn-formulario button {
+        font-size: 1.05rem;
+    }
+
+    .contenedor-incluido-asesoria {
+        overflow-x: hidden;
+        margin: 0 auto;
+        width: 100% !important;
+        grid-template-columns: 2fr;
+        grid-template-rows: auto;
+    }
+
+    /* Estilos respondives al footer */
+    footer p {
+        text-align: center;
+        margin-top: 15%;
+    }
+
+    footer ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+
+
+
+/* ============================================
+   CORRECCIONES A APLICAR EN EL CSS
+   ============================================ */
+
+
+/* 1. QUITAR este bloque entero porque el display:flex no sirve de nada
+   ya que el display:none de abajo lo machaca */
+
+/* 
+.curso-perdidaGrasa,
+.curso-ganancia-de-masa-muscular,
+.curso-nutrición {
+    display: flex;   <-- QUITAR ESTE BLOQUE ENTERO
+    display: none;
+}
+*/
+
+
+/* 2. EN :root CORREGIR ESTO: */
+
+/* 
+--color-menu: rgb(18, 18, 18, 0.5);   <-- MAL, rgb no acepta opacidad
+--color-menu: rgba(18, 18, 18, 0.5);  <-- BIEN
+*/
+
+
+/* 3. EN EL RESPONSIVE, CAMBIAR background-color: 0 POR transparent EN ESTOS DOS SITIOS: */
+
+/*
+.menu-paginas-abierto ul li {
+    background-color: 0;          <-- MAL
+    background-color: transparent; <-- BIEN
+}
+*/
+
+
+/* 4. SACAR ESTO FUERA DE LOS @MEDIA (ponerlo en el CSS general antes del @media móvil)
+   porque es igual en móvil y tablet: */
+
+/*
+footer p {
+    text-align: center;
+    margin-top: 15%;
+}
+
+footer ul {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+*/
+
+
+/* 5. CAMBIAR TODOS LOS SELECTORES LARGOS DEL FORMULARIO POR LA CLASE .input-campos */
+
+/*
+EN VEZ DE:
+.container-formulario input, .container-formulario select, .container-formulario textarea ...
+
+PONER:
+.input-campos {
+    background-color: black;
+    width: 100%;
+    ...
+}
+*/
+
+
+/* 6. QUITAR LOS !important DE: */
+
+/*
+h1 { font-size: var(--texto-h1-movil) !important; }   <-- quitar !important
+h2 { font-size: var(--texto-h2-movil) !important; }   <-- quitar !important
+.contenedor-incluido-asesoria { width: 100% !important; } <-- quitar !important
+   y subir la especificidad del selector si hace falta
+*/
