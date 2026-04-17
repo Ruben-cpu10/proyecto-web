@@ -489,12 +489,11 @@ a {
 }
 
 /* Estilos a los iconos de las tarjetas de la seccion 1 y de la seccion 4 (mi experiencia) */
-.tarjeta svg,
-.tarjeta-experiencia svg {
-    fill: var(--acento-amarillo);
+.tarjeta i,
+.tarjeta-experiencia i {
+    color: var(--acento-amarillo);
     background-color: transparent;
-    width: 75px;
-    height: 75px;
+    font-size: 75px;
     filter: drop-shadow(0 0 5px var(--acento-amarillo));
 }
 
@@ -671,13 +670,12 @@ a {
     margin-bottom: 5%;
 }
 
-.tarjeta-texto-curso svg {
-    width: 30px;
-    height: 30px;
-    fill: gray;
+.tarjeta-texto-curso i {
+    font-size: 30px;
+    color: gray;
 }
 
-.tarjeta-texto-curso svg:last-of-type {
+.tarjeta-texto-curso i:last-of-type {
     margin-left: 10%;
 }
 
@@ -832,9 +830,8 @@ a {
     padding: 10px;
 }
 
-.carrusel-btn svg {
-    width: 30px;
-    height: 30px;
+.carrusel-btn i {
+    font-size: 30px;
 }
 
 .carrusel-btn:hover {
@@ -1033,10 +1030,10 @@ a {
 }
 
 /* Estilos al svg de la seccion 6*/
-.titulo-section6 svg {
+.titulo-section6 i {
     margin: 0 auto;
-    width: 65px;
-    fill: var(--acento-amarillo);
+    font-size: 65px;
+    color: var(--acento-amarillo);
 }
 
 /* estilos a todas las preguntas de toda la seccion */
@@ -1165,7 +1162,11 @@ a {
     right: 24px;
     z-index: 1000;
     background-color: var(--acento-amarillo);
-    padding: 8px;
+    color: black;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 56px;
     height: 56px;
     border: solid 3px black;
@@ -1214,14 +1215,14 @@ footer h2 {
 
 /* estilos a cada uno de los iconos */
 .redes-sociales {
-    width: 27px;
-    height: 27px;
-    fill: white;
+    display: inline-block;
+    font-size: 27px;
+    color: white;
     transition: 0.3s all ease;
 }
 
 .redes-sociales:hover {
-    fill: var(--acento-amarillo);
+    color: var(--acento-amarillo);
     transform: translateY(-5px);
 }
 
@@ -1578,12 +1579,9 @@ footer a:hover {
     color: var(--color-texto-gris);
 }
 
-.incluido-asesoria svg {
-    fill: var(--acento-amarillo);
-    display: flex;
-    justify-content: center;
-    width: 72px;
-    height: 72px;
+.incluido-asesoria i {
+    color: var(--acento-amarillo);
+    font-size: 72px;
 }
 
 .container-svg-asesoria {
@@ -2003,15 +2001,51 @@ footer a:hover {
 
     .svg-menu-hamburguesa,
     .svg-menu-hamburguesa-cerrar.hamburguesaCerrar-visible {
-        fill: white;
         display: block;
         width: 60px;
         height: 60px;
         z-index: 101;
+        cursor: pointer;
+    }
+
+    .svg-menu-hamburguesa {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .linea-menu {
+        width: 35px;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        transition: 0.3s all ease;
     }
 
     .svg-menu-hamburguesa-cerrar.hamburguesaCerrar-visible {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        z-index: 101;
+        cursor: pointer;
+        position: relative;
         animation: menuDesplegarse 0.5s ease forwards;
+    }
+
+    .svg-menu-hamburguesa-cerrar .linea-menu {
+        position: absolute;
+    }
+
+    .svg-menu-hamburguesa-cerrar .linea-menu:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .svg-menu-hamburguesa-cerrar .linea-menu:nth-child(2) {
+        transform: rotate(-45deg);
     }
 
     .svg-menu-hamburguesa.hamburguesa-no-visible {
@@ -2020,7 +2054,6 @@ footer a:hover {
 
     .svg-menu-hamburguesa-cerrar {
         display: none;
-
     }
 
     .menu {
