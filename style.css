@@ -1979,6 +1979,12 @@ footer a:hover {
         position: sticky;
     }
 
+    .menu {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
     /* Ocultamos el menu de la version escritorio */
     .menu-paginas {
         display: none;
@@ -1995,7 +2001,7 @@ footer a:hover {
         display: block;
         opacity: 1;
         width: 70%;
-        height: 100vh !important;
+        height: 100vh;
         position: absolute;
         /* lo ponemos en absoluto respecto al padre que esta en posicion relativa */
         top: 0;
@@ -2004,21 +2010,17 @@ footer a:hover {
         animation: menuDesplegarse 0.5s ease forwards;
     }
 
-    .svg-menu-hamburguesa,
-    .svg-menu-hamburguesa-cerrar.hamburguesaCerrar-visible {
-        display: block;
-        width: 60px;
-        height: 60px;
-        z-index: 101;
-        cursor: pointer;
-    }
-
     .svg-menu-hamburguesa {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 8px;
+        width: 60px;
+        height: 60px;
+        z-index: 1001;
+        cursor: pointer;
+        position: relative;
     }
 
     .linea-menu {
@@ -2029,42 +2031,13 @@ footer a:hover {
         transition: 0.3s all ease;
     }
 
-    .svg-menu-hamburguesa-cerrar.hamburguesaCerrar-visible {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 60px;
-        height: 60px;
-        z-index: 101;
-        cursor: pointer;
-        position: relative;
-        animation: menuDesplegarse 0.5s ease forwards;
+    /* Transformación a X */
+    .hamburguesa-activa .linea-menu:nth-child(1) {
+        transform: translateY(5.5px) rotate(45deg);
     }
 
-    .svg-menu-hamburguesa-cerrar .linea-menu {
-        position: absolute;
-    }
-
-    .svg-menu-hamburguesa-cerrar .linea-menu:nth-child(1) {
-        transform: rotate(45deg);
-    }
-
-    .svg-menu-hamburguesa-cerrar .linea-menu:nth-child(2) {
-        transform: rotate(-45deg);
-    }
-
-    .svg-menu-hamburguesa.hamburguesa-no-visible {
-        display: none;
-    }
-
-    .svg-menu-hamburguesa-cerrar {
-        display: none;
-    }
-
-    .menu {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
+    .hamburguesa-activa .linea-menu:nth-child(2) {
+        transform: translateY(-5.5px) rotate(-45deg);
     }
 
     .menu-paginas-abierto ul {
