@@ -958,6 +958,11 @@ a {
     margin: 15px auto;
 }
 
+/*Estilos a los ticks de dentro de las tarjeta de "planes"*/
+.icono-planes-tick {
+    color: var(--acento-amarillo);
+}
+
 /* estilos a los botones de los planes*/
 .btn-planes {
     width: 80%;
@@ -1413,7 +1418,7 @@ footer a:hover {
 .btn-formulario button:hover {
     box-shadow: var(--sombra-neon-amarilla);
     border: none;
-    transform: scale(1.05) rotate(-1deg);
+    transform: scale(1.03) rotate(-1deg);
     transition: 0.3s all ease;
 }
 
