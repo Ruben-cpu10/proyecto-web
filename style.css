@@ -40,11 +40,9 @@
 }
 
 
-/* ==========================================
-   ANIMACIONES (keyframes)
-   ========================================== */
+/* keyframes */
 
-/* Animación de pulso neón para los botones principales (CTA) */
+/* Animación de pulso neón para los CTA */
 @keyframes pulsoNeon {
     0% {
         box-shadow: 0 0 10px var(--acento-amarillo);
@@ -59,7 +57,7 @@
     }
 }
 
-/* Animacion de entrada para el texto del hero (desde la izquierda) */
+/* Animacion de entrada para el texto del hero */
 @keyframes aparecerIzquierda {
     from {
         opacity: 0;
@@ -72,7 +70,7 @@
     }
 }
 
-/* Animacion de entrada para la imagen del hero (desde la derecha) */
+/* Animacion de entrada para la imagen del hero */
 @keyframes aparecerDerecha {
     from {
         opacity: 0;
@@ -85,22 +83,7 @@
     }
 }
 
-/* Animación del botón CTA */
-@keyframes cta-animation {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.2);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* Animación del menú hamburguesa al desplegarse (móvil/tablet) */
+/* Animación del menú hamburguesa al desplegarse */
 @keyframes menuDesplegarse {
     from {
         opacity: 0;
@@ -131,17 +114,6 @@ body {
     background-color: black;
 }
 
-/* capa por encima del body negra transparente */
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: -100;
-}
 
 
 /* estilos a todos los h1 */
@@ -152,7 +124,6 @@ h4 {
     font-family: 'Montserrat';
 }
 
-/* estilos a todos los p */
 p,
 span,
 a {
@@ -218,7 +189,6 @@ a {
 
 .logo:hover {
     transform: scale(1.1);
-    /* le hacemos que crezca */
 }
 
 .container-menu {
@@ -247,7 +217,7 @@ a {
 
 /* Estilos a la lista del menu*/
 .menu ul {
-    font-size: 0.92rem;
+    font-size: 1rem;
     list-style-type: none;
     display: flex;
     gap: 45px;
@@ -276,8 +246,6 @@ a {
 .menu ul li:hover {
     transform: scale(1.05) translateY(-3px);
     /* le hacemos que crezca */
-    transition-duration: 0.2s;
-    /* la duración del transform*/
 }
 
 /* Estilos para el li en el que el usuario se encuentre en dicha página*/
@@ -313,8 +281,6 @@ a {
     place-items: center;
     clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 93%, 80% 96%, 50% 100%, 23% 96%, 0 93%, 0% 35%, 0 0);
 }
-
-
 
 /* Estilos a todos los textos de la sección hero*/
 .texto-hero {
@@ -378,6 +344,7 @@ a {
     border-radius: 20px;
     box-shadow: 7px 5px 20px 3px var(--acento-amarillo);
     transition: all 0.5s ease;
+    animation: aparecerDerecha 2s ease;
 }
 
 /* estilos al pasar el cursor por la imagen*/
@@ -501,7 +468,6 @@ a {
 /* Estilos a los hovers de las tarjetas de la seccion 1 y 4 */
 .tarjeta:hover,
 .tarjeta-experiencia:hover {
-    transition: all 0.3s ease;
     transform: translateY(-10px) scale(1.05);
     border: solid 1px var(--acento-amarillo);
     box-shadow: 0 15px 35px rgba(242, 255, 0, 0.15);
@@ -516,7 +482,7 @@ a {
 
 .tarjeta p,
 .tarjeta-experiencia p {
-    font-size: 0.88rem;
+    font-size: 1rem;
     text-align: center;
     color: var(--color-texto-gris);
 }
@@ -526,7 +492,7 @@ a {
 
 /* estilos a la seccion 2*/
 .section2 {
-    padding: 2% 0;
+    padding: 3% 0;
     background-color: var(--color-fondo-hero);
     text-align: center;
 }
@@ -543,8 +509,10 @@ a {
 
 .section2 hr {
     width: 55%;
-    border: solid 2px gray;
+    border: solid 1px gray;
     margin-bottom: 20px;
+    margin-left: auto;
+    /* para que este pegado a la derecha de la tarjeta */
 }
 
 /* Estilos a Servicios */
@@ -562,6 +530,7 @@ a {
     width: 80%;
     margin: 0 auto;
     grid-column: 1 / -1;
+    /* para que ocupe toda su fila */
     display: flex;
     gap: 2rem;
     justify-content: space-around;
@@ -570,7 +539,7 @@ a {
     border: solid 1px rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     border-radius: 20px;
-    transition: 0.4s all ease;
+    transition: 0.5s all ease;
 }
 
 .servicio-asesorias:hover {
@@ -598,9 +567,6 @@ a {
     text-align: right;
 }
 
-.servicio-tarjeta-texto hr {
-    margin-left: auto;
-}
 
 .servicio-tarjeta-texto p {
     font-size: var(--texto-p);
@@ -618,7 +584,7 @@ a {
     flex-direction: column;
     gap: 20px;
     overflow: hidden;
-    transition: 0.4s all ease;
+    transition: 0.5s all ease;
 }
 
 .tarjeta-curso img {
@@ -635,8 +601,8 @@ a {
 }
 
 .tarjeta-curso:hover img {
-    transform: scale(1.1);
-    transition: 0.4s ease;
+    transform: scale(1.05);
+    transition: 0.5s ease;
 }
 
 .tarjeta-curso:hover {
@@ -662,7 +628,6 @@ a {
     color: var(--color-texto-gris);
 }
 
-
 .info-cuso {
     display: flex;
     align-items: center;
@@ -675,6 +640,7 @@ a {
     color: gray;
 }
 
+/* estilo al icono del reloj de los cursos */
 .tarjeta-texto-curso i:last-of-type {
     margin-left: 10%;
 }
@@ -684,7 +650,6 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
 }
 
 .precio-curso {
@@ -693,7 +658,7 @@ a {
 
 .precio-curso p {
     color: var(--acento-amarillo);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .precio-curso span {
@@ -702,7 +667,7 @@ a {
     text-decoration: line-through;
 }
 
-/* Efectos de scroll */
+/* Efectos de scroll de los cursos */
 
 /* curso 1 */
 .curso-1.oculto {
@@ -744,7 +709,7 @@ a {
 }
 
 .servicio-tarjeta-boton a {
-    display: block;
+    display: inline-block;
     font-size: var(--texto-p);
     color: black;
     font-weight: bold;
@@ -761,7 +726,7 @@ a {
     transition: 0.3s;
 }
 
-/* SECTION 3 - Testimonios / Carrusel */
+/* SECTION 3 - Testimonios */
 
 /* Estilos a los testimonios */
 .section3 {
@@ -797,7 +762,7 @@ a {
 
 .carrusel-testimonios {
     display: flex;
-    transition: transform 0.5s ease;
+    transition: 0.5s all ease;
 }
 
 .img-cambiosFisicos {
@@ -826,6 +791,7 @@ a {
     border-radius: 50%;
     cursor: pointer;
     flex-shrink: 0;
+    /* para que no se encoja */
     transition: 0.3s;
     padding: 10px;
 }
@@ -844,7 +810,7 @@ a {
 /* Estilos a la seccion de "Mi Experiencia" */
 .section4 {
     width: 100%;
-    padding-top: 2%;
+    padding-top: 3%;
     padding-bottom: 0;
     background-color: var(--color-fondo-hero);
 }
@@ -858,10 +824,6 @@ a {
 
 .container-texto-experiencia h3 {
     font-size: 1.75rem;
-}
-
-.container-texto-experiencia p {
-    font-size: 1rem;
 }
 
 
@@ -903,7 +865,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    transition: 0.4s all ease;
+    transition: 0.5s all ease;
 }
 
 /* estilos al pasar el cursor a los div de los planes*/
@@ -1000,6 +962,7 @@ a {
     top: -2.5%;
     left: 50%;
     transform: translateX(-50%);
+    /* para que se centre respecto a su padre*/
     background-color: var(--acento-amarillo);
     color: black;
     font-weight: bold;
@@ -1011,7 +974,7 @@ a {
 
 .plan-2:hover {
     box-shadow: 0 20px 50px rgba(242, 255, 0, 0.4);
-    transform: scale(1.13) translateY(-10px);
+    transform: scale(1.11) translateY(-10px);
 }
 
 
@@ -1099,7 +1062,6 @@ a {
     font-family: var(--fuente-textos);
     padding: 15px 20px;
     background-color: var(--color-fondo-hero);
-    /* le ponemos border en la izq, derercha y abajo*/
     border-bottom: solid 1px var(--acento-amarillo);
     border-left: solid 1px var(--acento-amarillo);
     border-right: solid 1px var(--acento-amarillo);
@@ -1115,12 +1077,12 @@ a {
 .section2,
 .section4,
 .section6 {
-    padding: 2% 0;
+    padding: 4% 0;
 }
 
 /* CTA*/
 
-/* Estilos al CTA "¿Listo para empezar una vez por todas?"*/
+/* Estilos al CTA */
 .cta {
     width: 100%;
     background-color: var(--acento-amarillo);
@@ -1155,6 +1117,11 @@ a {
     font-size: 1rem;
     font-weight: bold;
     animation: cta-animation 2s infinite;
+    transition: 0.2s all linear;
+}
+
+.cta a:hover {
+    transform: scale(1.05) translateY(-2px);
 }
 
 
@@ -1163,8 +1130,8 @@ a {
 /* Estilos al boton para volver arriba de la página */
 #btn-arriba {
     position: fixed;
-    bottom: 24px;
-    right: 24px;
+    bottom: 25px;
+    right: 25px;
     z-index: 1000;
     background-color: var(--acento-amarillo);
     color: black;
@@ -1393,7 +1360,7 @@ footer a:hover {
 .container-formulario select:focus,
 .container-formulario textarea:focus {
     outline: none;
-    /* quita el border predeterminado del navegador */
+    /* para quitat el border predeterminado del navegador */
     border-color: var(--acento-amarillo);
 }
 
@@ -1428,7 +1395,6 @@ footer a:hover {
     font-weight: bold;
     text-align: center;
 }
-
 
 
 /* Estilos a la pagina de servicios */
@@ -1753,8 +1719,6 @@ footer a:hover {
 
 /* ESTILOS PARA EL POPUP PARA DESCARGAR EL GLOSSIER*/
 
-/* ── POPUP DOSSIER ── */
-
 /* estilos al todo el popup*/
 .contenedor-dossier {
     display: flex;
@@ -1762,7 +1726,6 @@ footer a:hover {
     /* para ponerlo al centro de la pantlla */
     align-items: center;
     justify-content: center;
-
     position: fixed;
     inset: 0;
     z-index: 1000;
@@ -1836,12 +1799,6 @@ footer a:hover {
     font-size: var(--texto-p);
 }
 
-/* Estilos para cuando se rellene los campos con las opciones que hayas puesto anteriormente (el autocompletado de cosas que ya has rellenado) */
-.campo-popup input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px var(--color-principal) inset !important;
-    -webkit-text-fill-color: var(--color-texto-gris) !important;
-}
-
 .campo-popup input::placeholder {
     font-size: var(--texto-p);
 }
@@ -1884,7 +1841,6 @@ footer a:hover {
 .popup-mensaje.error {
     color: #ff4d4d;
 }
-
 
 
 /* ESTILOS DEL AVISO LEGAL*/
@@ -1950,6 +1906,12 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* clase pues en js para que el tiempo de los hovers sea de 0.5 y no se solape con el tiempo de las animaciones de scroll */
+.terminado {
+    transition: 0.3s all ease;
+}
+
+
 /* RESPONSIVE MÓVIL */
 
 @media (max-width: 768px) {
@@ -1971,8 +1933,6 @@ footer a:hover {
         text-align: center !important;
     }
 
-
-    /* --- MENÚ --- */
     /* Estilos al menu */
     .container-menu {
         width: 100%;
@@ -2044,7 +2004,7 @@ footer a:hover {
         display: flex;
         flex-direction: column;
         background-color: var(--color-fondo-hero);
-        padding: 70px 15px;
+        padding: 75px 15px;
         border: var(--acento-amarillo) solid 1px;
         border-radius: 10px;
         width: 100%;
@@ -2074,7 +2034,6 @@ footer a:hover {
 
 
 
-    /* --- HERO --- */
     /* Estilos al hero */
     .hero {
         height: auto;
@@ -2120,7 +2079,7 @@ footer a:hover {
         margin-top: 50px;
     }
 
-    /* --- SECTION 1 - Nuestro Método --- */
+    /* SECTION 1 - Nuestro Método */
 
     /* Estilos de scroll a la section 1*/
     .t-1.oculto,
@@ -2162,7 +2121,7 @@ footer a:hover {
         text-align: center;
     }
 
-    /* --- SECTION 2 - Servicios (Inicio) --- */
+    /* SECTION 2 - Servicios */
 
     /* Estilos a la seccion 2 */
     .tarjetas-servicios {
@@ -2215,7 +2174,7 @@ footer a:hover {
         font-size: var(--texto-pequeno);
     }
 
-    /* --- SECTION 3 - Carrusel --- */
+    /* SECTION 3 - Carrusel */
 
     /* Estilos al carrusel */
     .carrusel {
@@ -2240,7 +2199,7 @@ footer a:hover {
         object-fit: cover;
     }
 
-    /* --- SECTION 4 - Mi Experiencia --- */
+    /* SECTION 4 - Mi Experiencia */
 
     /* Estilos a la seccion "MI experiencia"*/
     .section4 {
@@ -2265,7 +2224,7 @@ footer a:hover {
         overflow-x: hidden;
     }
 
-    /* --- SECTION 5 - Planes --- */
+    /* SECTION 5 - Planes */
 
     /* Estilos a los planes */
     .section5 {
@@ -2287,7 +2246,7 @@ footer a:hover {
     }
 
 
-    /* --- SECTION 6 - Preguntas Frecuentes --- */
+    /* SECTION 6 - Preguntas Frecuentes */
 
     /* Estilos a la seccion de preguntas frecuentes */
     .preguntas {
@@ -2299,7 +2258,7 @@ footer a:hover {
         text-align: center;
     }
 
-    /* --- CTA --- */
+    /* CTA */
 
     /* Estilos al CTA */
     .cta h2 {
@@ -2310,7 +2269,7 @@ footer a:hover {
         font-size: var(--texto-h3-movil);
     }
 
-    /* --- PÁGINA FORMULARIO --- */
+    /* PÁGINA FORMULARIO */
 
     /* Responsive del Formulario */
     .hero-formulario h1 {
@@ -2348,7 +2307,7 @@ footer a:hover {
         font-size: 1.05rem;
     }
 
-    /* --- PÁGINA SERVICIOS --- */
+    /* PÁGINA SERVICIOS */
 
     /* Estilos a la página de Servicios */
 
@@ -2407,14 +2366,14 @@ footer a:hover {
         font-size: var(--texto-h3-movil);
     }
 
-    /* --- PÁGINAS LEGALES --- */
+    /* PÁGINAS LEGALES */
 
     /* Estilos a las paginas LEGALES */
     .contenido-legal {
         width: 90%;
     }
 
-    /* --- FOOTER --- */
+    /* FOOTER */
 
     /* Estilos responsives al footer */
     footer p {
@@ -2689,9 +2648,4 @@ footer a:hover {
         flex-direction: column;
         text-align: center;
     }
-}
-
-
-.terminado {
-    transition: 0.3s all ease;
 }

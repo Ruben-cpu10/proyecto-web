@@ -1,6 +1,6 @@
 // Para el popup:
 
-// 1.   Seleccionamos los elementos que vamos a usar del HTML
+// Seleccionamos los elementos que vamos a usar del HTML
 /* El overlay
 El botón de abrir
 El botón de cerrar (la X)
@@ -15,30 +15,30 @@ let botonEnviarDossier = document.querySelector('.btn-enviar-dossier')
 let mensajeErrorExito = document.querySelector('.popup-mensaje')
 let cursoActual = ""
 
-// 2. Funcionalidad de que al pulsar al boton de descargar el dossier aparezca el popup
-botonesAbrirDossier.forEach(function(boton) {
+// Funcionalidad de que al pulsar al boton de descargar el dossier aparezca el popup
+botonesAbrirDossier.forEach(function (boton) {
     boton.addEventListener('click', function () {
-    cursoActual = this.dataset.curso
-    contenedorDossier.classList.add('abierto')
-})
+        cursoActual = this.dataset.curso
+        contenedorDossier.classList.add('abierto')
+    })
 })
 
-//3. Al darle a la X se cierre el popup
+// Al darle a la X se cierre el popup
 botonCerrarDossier.addEventListener('click', function () {
     contenedorDossier.classList.remove('abierto')
 })
 
 
-// 4. Cuando se haga clic fuera del poup tb se cierre
+// Cuando se haga clic fuera del poup tb se cierre
 contenedorDossier.addEventListener('click', function (comprobarClic) {
     if (comprobarClic.target === contenedorDossier) { // el target, es preguntar donde se ha echo clic, y aqui decimos => ¿Se ha echo clic en el contenedor del dossier (el cual es el fondo borroso)?
         contenedorDossier.classList.remove('abierto')
     }
 })
 
-// 5. Comprobar que al enviar el formulario ninguno de los campos esten vacios, y mostrar un mensaje u otro
+// Comprobar que al enviar el formulario ninguno de los campos esten vacios, y mostrar un mensaje u otro
 
-
+// Inicializamos el EmailJS con mi clave publica
 emailjs.init('adqVs0aXaar2DD7tk')
 
 botonEnviarDossier.addEventListener('click', function () {
@@ -53,9 +53,7 @@ botonEnviarDossier.addEventListener('click', function () {
     mensajeErrorExito.classList.remove('error')
     mensajeErrorExito.classList.remove('exito')
 
-    // 6. Combinar esto con el EmailJS que es para que al usuario le pueda llegar el correo con el contenido que he definido en emailjs
-
-    // 6.1 Inicializar el EmailJS con mi clave publica
+    // Combinar esto con el EmailJS que es para que al usuario le pueda llegar el correo con el contenido que he definido en emailjs
 
     // comprobamos que ningun campo esta vacío
     if (nombre === "" && apellidos === "" && email === "") {
@@ -70,7 +68,7 @@ botonEnviarDossier.addEventListener('click', function () {
     }
 
     // sin no tienen ningun digito, comprobamos que el email tiene el @
-    else if (( !email.includes('@'))) { // comprobamos que contiene el @ el gmail que ponga el usuario  
+    else if ((!email.includes('@'))) { // comprobamos que contiene el @ del gmail que ponga el usuario  
         mensajeErrorExito.textContent = 'El email debe contener "@"' // ponemos que el mensaje muestre un texto pq en el html no hemos pusto texto
         mensajeErrorExito.classList.add('error')
     }
@@ -88,8 +86,8 @@ botonEnviarDossier.addEventListener('click', function () {
             enlacePdf = "https://drive.google.com/file/d/14KQfcYWc9NR2Ar7kcQv5K61n-DfU8IFH/view?usp=sharing"
         } else {
             enlacePdf = "https://drive.google.com/file/d/1pS5FOrmX6GrA8qzWRWC-89tlxyKGvQF4/view?usp=sharing"
-        } 
-        
+        }
+
         // y luego enviamos al emailjs los datos que necesita
         emailjs.send('service_teamruben', 'template_733jo5e', {
             nombre: nombre,
@@ -97,7 +95,7 @@ botonEnviarDossier.addEventListener('click', function () {
             email: email,
             enlace_pdf: enlacePdf
         })
-        // y al enviar los datos, al usuario le aparece una aleta en el navegador dependendiendo si se a enviado bien o no.
+            // y al enviar los datos, al usuario le aparece una aleta en el navegador dependendiendo si se a enviado bien o no.
             .then(function () {
                 alert("✅ ¡Dossier enviado! Revisa tu correo.")
             })
