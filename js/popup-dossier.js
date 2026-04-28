@@ -39,7 +39,7 @@ contenedorDossier.addEventListener('click', function (comprobarClic) {
 // Comprobar que al enviar el formulario ninguno de los campos esten vacios, y mostrar un mensaje u otro
 
 // Inicializamos el EmailJS con mi clave publica
-emailjs.init('adqVs0aXaar2DD7tk')
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
 
 botonEnviarDossier.addEventListener('click', function () {
 
