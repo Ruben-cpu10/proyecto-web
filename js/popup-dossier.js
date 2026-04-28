@@ -102,7 +102,8 @@ botonEnviarDossier.addEventListener('click', function () {
             .then(function () {
                 alert("✅ ¡Dossier enviado! Revisa tu correo.")
             })
-            .catch(function () {
+            .catch(function (error) {
+                console.error("EmailJS error:", error)
                 alert("❌ Error al enviar. Inténtalo de nuevo.")
             })
     }

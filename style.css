@@ -239,7 +239,7 @@ a {
 }
 
 .boton-importante {
-    background-color: var(--acento-amarillo) !important;
+    background-color: var(--acento-amarillo);
 }
 
 /* estilos al pasar el cursor al los elementos del menu */
