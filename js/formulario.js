@@ -39,14 +39,15 @@ botonEnviarFormulario.addEventListener('click', function (e) {
             `📧 Email: ${email}\n` +
             `💎 Plan: ${plan}\n` +
             `💵 Extras: ${extras}\n` +
+            `📞 Teléfono: ${telefono}\n` +
             `💬 Mensaje: ${mensaje}`;
 
         let url = `https://api.telegram.org/bot${import.meta.env.VITE_TELEGRAM_TOKEN}/sendMessage?chat_id=${import.meta.env.VITE_CHAT_ID}&text=${encodeURIComponent(texto)}`
 
         // ahora los mensajes de alerta en el navegador del dispositivo si se envia bien o mal el formulario
         fetch(url)
-            .then(function (res) {
-                if (res.ok) {
+            .then(function (respuesta) {
+                if (respuesta.ok) {
                     alert("✅ Formulario enviado exitosamente. En 24/48h le llegará un mensaje a WhatsApp para el procedimiento del pago.")
                 } else {
                     alert("❌ Error al enviar. Revisa los campos e inténtalo de nuevo.")

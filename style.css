@@ -402,7 +402,6 @@ a {
 }
 
 .titulo-section1 {
-    color: white;
     text-align: center;
 }
 
@@ -587,7 +586,7 @@ a {
 
 .tarjeta-curso:hover img {
     transform: scale(1.05);
-    transition: 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .tarjeta-curso:hover {
@@ -742,6 +741,7 @@ a {
 
 .carrusel-ventana {
     overflow: hidden;
+    width: 100%;
 }
 
 .carrusel-testimonios {
@@ -758,13 +758,14 @@ a {
     border-radius: 20px;
     background-color: var(--color-fondo-hero);
     min-width: 100%;
+    height: 100%;
 }
 
 .img-cambiosFisicos img {
     background-color: var(--acento-amarillo);
     border-radius: 10px;
     width: 70%;
-    height: 70%;
+    height: 450px;
     object-fit: cover;
 }
 
@@ -776,7 +777,7 @@ a {
     cursor: pointer;
     flex-shrink: 0;
     /* para que no se encoja */
-    transition: 0.3s;
+    transition: all 0.3s ease;
     padding: 10px;
 }
 
@@ -794,8 +795,6 @@ a {
 /* Estilos a la seccion de "Mi Experiencia" */
 .section4 {
     width: 100%;
-    padding-top: 3%;
-    padding-bottom: 0;
     background-color: var(--color-fondo-hero);
 }
 
@@ -883,8 +882,7 @@ a {
 .planes hr {
     border: solid 1.5px rgba(255, 255, 255, 0.1);
     width: 70%;
-    margin: 0 auto;
-    margin-bottom: 15px;
+    margin: 0 auto 15px;
 }
 
 .planes ul {
@@ -1276,7 +1274,7 @@ footer a:hover {
 /* Estilos al formulario cuando se pasa el cursor por encima*/
 .container-formulario:hover {
     border: solid 2px var(--acento-amarillo);
-    transition: 0.2s all ease-in;
+    transition: all 0.2s ease-in;
 }
 
 .container-formulario label {
@@ -1426,7 +1424,6 @@ footer a:hover {
 /* Maquetación de las secciones de la pagina de los servicios */
 .secciones-servicios {
     width: 100%;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
@@ -1560,7 +1557,7 @@ footer a:hover {
     transform: rotate(-2deg) scale(1.05);
 }
 
-/* estilos a cada una de las pestañas cuando esten activas (es decir cuando el usuario seleccione una pestaña para mostrar el contenido del curso que quiera)*/
+/* estilos a cada una de las pestañas cuando esten activas (cuando el usuario seleccione una pestaña para mostrar el contenido del curso que quiera)*/
 .pestaña-curso.visible {
     background: var(--acento-amarillo);
     color: black;
@@ -1572,7 +1569,7 @@ footer a:hover {
 .curso-perdidaGrasa.visible,
 .curso-ganancia-de-masa-muscular.visible,
 .curso-nutricion.visible {
-    display: block;
+    display: flex;
     /* se ve cuando el js le ponga la clase .activo */
 }
 
@@ -2177,102 +2174,11 @@ footer a:hover {
         text-align: center !important;
     }
 
-    /* Estilos al menu */
-    .container-menu {
-        width: 100%;
-        position: sticky;
-    }
-
-    .menu {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-    }
-
-    /* Ocultamos el menu de la version escritorio */
-    .menu-paginas {
-        display: none;
-    }
-
-    .logo {
-        width: auto;
-        max-width: 100px;
-    }
-
-    /* Ponemos visible el menu que quiero mostrar en el movil */
-    .menu-paginas-abierto {
-        display: block;
-        opacity: 1;
-        width: 70%;
-        height: 100vh;
-        position: absolute;
-        /* lo ponemos en absoluto respecto al padre que esta en posicion relativa */
-        top: 0;
-        right: 0;
-        z-index: 100;
-        animation: menuDesplegarse 0.5s ease forwards;
-    }
-
-    .svg-menu-hamburguesa {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        width: 60px;
-        height: 60px;
-        z-index: 1001;
-        cursor: pointer;
-        position: relative;
-    }
-
-    .linea-menu {
-        width: 35px;
-        height: 3px;
-        background-color: white;
-        border-radius: 2px;
-        transition: all 0.3s ease;
-    }
-
-    /* Transformación a X */
-    .hamburguesa-activa .linea-menu:nth-child(1) {
-        transform: translateY(5.5px) rotate(45deg);
-    }
-
-    .hamburguesa-activa .linea-menu:nth-child(2) {
-        transform: translateY(-5.5px) rotate(-45deg);
-    }
-
-    .menu-paginas-abierto ul {
-        display: flex;
-        flex-direction: column;
-        background-color: var(--color-fondo-hero);
-        padding: 75px 15px;
-        border: var(--acento-amarillo) solid 1px;
-        border-radius: 10px;
-        width: 100%;
-        height: 100vh;
-        z-index: 1000;
-    }
-
-    .menu-paginas-abierto ul li {
-        display: inline-block;
-        border: none;
-        text-align: right;
-        width: 100%;
-        background-color: transparent;
-    }
-
+    /* Estilos al menú (heredadol del media query de tablet) */
     .menu-paginas-abierto ul li:last-of-type {
         display: inline-block;
         width: auto;
         align-self: flex-end;
-
-    }
-
-    .menu-paginas-abierto ul li:hover {
-        transform: none;
-        /* le quitamos el hover en el movil ya que no se ve */
     }
 
 
@@ -2308,7 +2214,7 @@ footer a:hover {
 
     .container-btn-hero:hover {
         transform: scale(1.05);
-        transition: 0.5s;
+        transition: all 0.5s ease;
     }
 
     .btn-hero {
@@ -2423,7 +2329,7 @@ footer a:hover {
 
     /* Estilos al carrusel */
     .carrusel {
-        width: 500px;
+        width: 40%;
         max-width: 80%;
         gap: 10px;
         /* Reducimos el espacio entre botones para que quepan */
@@ -2432,7 +2338,7 @@ footer a:hover {
     .img-cambiosFisicos img {
         background-color: var(--acento-amarillo);
         border-radius: 10px;
-        max-width: 100%;
+        width: 85%;
         /* La imagen se ajusta al ancho de la tarjeta */
         object-fit: cover;
 
