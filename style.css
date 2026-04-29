@@ -626,7 +626,7 @@ a {
     color: var(--color-texto-gris);
 }
 
-.info-cuso {
+.info-curso {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -912,7 +912,6 @@ a {
 .planes ul li {
     color: var(--color-texto-gris);
     font-family: var(--fuente-textos);
-    margin: 0 auto;
 }
 
 /*Estilos a los ticks de dentro de las tarjeta de "planes"*/
@@ -1426,7 +1425,7 @@ footer a:hover {
 }
 
 .contenido-servicios h2 {
-    font-size: var(--texto-h2)
+    font-size: var(--texto-h2);
 }
 
 .contenido-servicios h3 {
@@ -1447,8 +1446,7 @@ footer a:hover {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    gap: 0;
+    gap: 10px;
 }
 
 
@@ -2088,7 +2086,6 @@ footer a:hover {
     .tarjetas {
         grid-template-columns: 1fr;
         gap: 50px;
-        height: auto;
         width: 100%;
     }
 
@@ -2112,7 +2109,6 @@ footer a:hover {
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-content: center;
         justify-content: space-around;
         flex-basis: 40%;
         align-items: center;
@@ -2148,7 +2144,7 @@ footer a:hover {
         margin-bottom: 10%;
     }
 
-    .info-cuso p {
+    .info-curso p {
         font-size: var(--texto-pequeno);
     }
 
@@ -2194,7 +2190,6 @@ footer a:hover {
 
     /* Estilos a los planes */
     .section5 {
-        margin: 0 auto;
         text-align: center;
     }
 
@@ -2551,7 +2546,6 @@ footer a:hover {
 
     /* Estilos a la seccion "MI experiencia"*/
     .container-experiencia {
-        height: auto;
         display: grid;
         grid-template-columns: 1fr;
         gap: 50px;
@@ -2599,17 +2593,5 @@ footer a:hover {
         margin: 0 auto;
         width: 100% !important;
         grid-template-columns: 1fr;
-    }
-
-    /* Estilos respondives al footer */
-    footer p {
-        text-align: center;
-        margin-top: 15%;
-    }
-
-    footer ul {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
     }
 }
