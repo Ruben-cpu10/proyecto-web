@@ -102,7 +102,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    max-width: 100%;
 }
 
 /* Estilos generales de la web*/
@@ -184,7 +183,7 @@ a {
     height: 60px;
     clip-path: circle(37.7% at 49% 51%);
     /* forma de circulo */
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
 }
 
 .logo:hover {
@@ -209,7 +208,7 @@ a {
     /* alineación vertical */
     backdrop-filter: blur(15px);
     /* efecto borroso*/
-    border-radius: 0px 0 25px 25px;
+    border-radius: 0 0 25px 25px;
     /* radio del borde de la esquina izq y derecha*/
     border-bottom: solid var(--acento-amarillo) 0.5px;
 }
@@ -258,23 +257,20 @@ a {
 .pag-servicios {
     color: white;
     font-weight: bold;
-    text-decoration: none;
 }
 
 .pag-formulario {
     color: black;
-    text-decoration: none;
     font-weight: bold;
 }
 
 
 /* Estilos al la seccion hero*/
 .hero {
-    margin: -10px;
     background: linear-gradient(135deg, #1e1e1e 60%, black 100%);
     /* degradado que acaba abajo a la derecha */
     min-height: 100vh;
-    padding: 20px 10px 65px 0px;
+    padding: 20px 10px 65px 0;
     display: grid;
     grid-template-columns: 1.3fr 1fr;
     place-items: center;
@@ -284,7 +280,6 @@ a {
 /* Estilos a todos los textos de la sección hero*/
 .texto-hero {
     width: 80%;
-    height: auto;
     animation: aparecerIzquierda 2s ease;
 }
 
@@ -301,8 +296,7 @@ a {
 
 /* estilos al boton del hero */
 .container-btn-hero {
-    transition: 0.5s all linear;
-    width: auto;
+    transition: all 0.5s linear;
 }
 
 .btn-hero {
@@ -315,7 +309,7 @@ a {
     font-weight: bold;
     font-size: 1.1rem;
     margin-top: 38px;
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
     animation: pulsoNeon 3s infinite ease-in-out;
 }
 
@@ -325,12 +319,7 @@ a {
 }
 
 /* Estilos a las palabras que quiero que se destaquen */
-.resaltado {
-    color: var(--acento-amarillo);
-    font-weight: bold;
-}
-
-/* Estilos a las palabras "Team Rubén" */
+.resaltado,
 .team {
     color: var(--acento-amarillo);
     font-weight: bold;
@@ -457,7 +446,6 @@ a {
 .tarjeta i,
 .tarjeta-experiencia i {
     color: var(--acento-amarillo);
-    background-color: transparent;
     font-size: 75px;
     filter: drop-shadow(0 0 5px var(--acento-amarillo));
 }
@@ -537,7 +525,7 @@ a {
     border: solid 1px rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     border-radius: 20px;
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
 }
 
 .servicio-asesorias:hover {
@@ -549,7 +537,6 @@ a {
 .servicio-asesorias img {
     width: 100%;
     height: 420px;
-    max-height: 420px;
     border-radius: 25px;
 }
 
@@ -582,7 +569,7 @@ a {
     flex-direction: column;
     gap: 20px;
     overflow: hidden;
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
 }
 
 .tarjeta-curso img {
@@ -591,7 +578,7 @@ a {
     object-fit: cover;
     object-position: center 28%;
     border-radius: 25px 25px 0 0;
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
 }
 
 .curso-3 img {
@@ -671,7 +658,7 @@ a {
 .curso-1.oculto {
     opacity: 0;
     transform: translateX(-150px);
-    transition: 2s all ease;
+    transition: all 2s ease;
     transition-delay: 0.1s;
 }
 
@@ -684,7 +671,7 @@ a {
 .curso-2.oculto {
     opacity: 0;
     transform: translateY(-150px);
-    transition: 2s all ease;
+    transition: all 2s ease;
     transition-delay: 0.1s;
 }
 
@@ -697,7 +684,7 @@ a {
 .curso-3.oculto {
     opacity: 0;
     transform: translateX(150px);
-    transition: 1s all ease;
+    transition: all 1s ease;
     transition-delay: 0.1s;
 }
 
@@ -715,7 +702,7 @@ a {
     border: 1px solid var(--acento-amarillo);
     padding: 8px 16px;
     border-radius: 20px;
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
 }
 
 .servicio-tarjeta-boton a:hover {
@@ -759,7 +746,7 @@ a {
 
 .carrusel-testimonios {
     display: flex;
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
 }
 
 .img-cambiosFisicos {
@@ -860,7 +847,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
 }
 
 /* estilos al pasar el cursor a los div de los planes*/
@@ -924,13 +911,12 @@ a {
     width: 80%;
     margin: 8px auto;
     padding: 12px 16px;
-    background-color: transparent;
     font-weight: bold;
     color: white;
     font-size: 0.9rem;
     border: solid 1px var(--acento-amarillo);
     border-radius: 20px;
-    transition: 0.4s all ease;
+    transition: all 0.4s ease;
     cursor: pointer;
 }
 
@@ -977,7 +963,6 @@ a {
 .section6 {
     background-color: var(--color-fondo-hero);
     width: 100%;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1010,7 +995,6 @@ a {
 /* estilo al contenedor donde se encuentra la pregunta y la respuesta */
 .container-pregunta {
     width: 100%;
-    margin: 0 auto;
     text-align: left;
 }
 
@@ -1028,7 +1012,7 @@ a {
     border: 2px solid var(--acento-amarillo);
     padding: 10px 20px;
     border-radius: 20px;
-    transition: 0.2s all linear;
+    transition: all 0.2s linear;
 }
 
 .titulo-preguntas:hover {
@@ -1110,7 +1094,7 @@ a {
     color: var(--acento-amarillo);
     font-size: 1rem;
     font-weight: bold;
-    transition: 0.2s all linear;
+    transition: all 0.2s linear;
 }
 
 .cta a:hover {
@@ -1174,7 +1158,6 @@ footer h2 {
 /* estilos al contendor de lso iconos de las redes sociales */
 .rrss {
     display: flex;
-    flex-direction: row;
     gap: 20px;
 }
 
@@ -1183,7 +1166,7 @@ footer h2 {
     display: inline-block;
     font-size: 27px;
     color: white;
-    transition: 0.3s all ease;
+    transition: all 0.3s ease;
 }
 
 .redes-sociales:hover {
@@ -1251,7 +1234,7 @@ footer a:hover {
     width: 80%;
     border-radius: 20px;
     border: solid 2px var(--acento-amarillo);
-    transition: 0.5s all ease-in;
+    transition: all 0.5s ease-in;
 }
 
 .contenido-formulario img:hover {
@@ -1265,7 +1248,7 @@ footer a:hover {
     border-radius: 20px;
     border: solid 2px gray;
     padding: 24px 32px;
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
 }
 
 /* Animaciones de scroll a la página formulario */
@@ -1368,14 +1351,14 @@ footer a:hover {
     font-size: 1.35rem;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
 }
 
 .btn-formulario button:hover {
     box-shadow: var(--sombra-neon-amarilla);
     border: none;
     transform: scale(1.03) rotate(-1deg);
-    transition: 0.3s all ease;
+    transition: all 0.3s ease;
 }
 
 .mensaje-formulario {
@@ -1522,7 +1505,7 @@ footer a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
 }
 
 .incluido-asesoria:hover {
@@ -1643,12 +1626,12 @@ footer a:hover {
     border: solid 2px var(--color-texto-gris);
     border-radius: 25px;
     padding: 16px 28px;
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
 }
 
 .modulo h4,
 .modulo p {
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
 }
 
 .modulo:hover {
@@ -1686,7 +1669,7 @@ footer a:hover {
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
     color: black;
 }
 
@@ -1740,7 +1723,7 @@ footer a:hover {
     padding: 5px 15px;
     border: none;
     cursor: pointer;
-    transition: 0.3s all ease;
+    transition: all 0.3s ease;
 }
 
 .cerrar-popup:hover {
@@ -1790,7 +1773,7 @@ footer a:hover {
     border-radius: 20px;
     border: none;
     cursor: pointer;
-    transition: 1s all ease;
+    transition: all 1s ease;
     color: black;
 }
 
@@ -1798,7 +1781,7 @@ footer a:hover {
     box-shadow: var(--sombra-neon-amarilla);
     border: none;
     transform: scale(1.1) rotate(-1deg);
-    transition: 0.5s all ease;
+    transition: all 0.5s ease;
 }
 
 
@@ -1874,7 +1857,7 @@ footer a:hover {
     font-weight: bold;
     color: var(--acento-amarillo);
     font-size: var(--texto-p);
-    transition: 0.3s all ease;
+    transition: all 0.3s ease;
 }
 
 .btn-volver-inicio a:hover {
@@ -1884,7 +1867,292 @@ footer a:hover {
 
 /* clase pues en js para que el tiempo de los hovers sea de 0.5 y no se solape con el tiempo de las animaciones de scroll */
 .terminado {
-    transition: 0.3s all ease;
+    transition: all 0.3s ease;
+}
+
+
+/* RESPONSIVE TABLET */
+
+@media (max-width: 1200px) {
+
+    /* Estilos generales */
+    h1 {
+        font-size: var(--texto-h1-tablet);
+    }
+
+    p,
+    li,
+    a {
+        font-size: var(--texto-p-tablet);
+    }
+
+    h2 {
+        font-size: var(--texto-h2-tablet);
+    }
+
+    h3 {
+        font-size: var(--texto-h3-tablet);
+    }
+
+    .container-titulos-sections {
+        width: 100%;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .container-titulos-sections p {
+        width: 95%;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    /* Estilos al menu */
+    /* Estilos al menu MÓVIL */
+    .container-menu {
+        width: 100%;
+        position: sticky;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    /* Ocultamos el menu de la version escritorio */
+    .menu-paginas {
+        display: none;
+    }
+
+    .logo {
+        width: auto;
+        max-width: 100px;
+    }
+
+    /* Contenedor del menú abierto (Sidebar) */
+    .menu-paginas-abierto {
+        display: block;
+        opacity: 1;
+        width: 70%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 100;
+        animation: menuDesplegarse 0.5s ease forwards;
+    }
+
+    /* Botón Hamburguesa */
+    .svg-menu-hamburguesa {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        width: 60px;
+        height: 60px;
+        z-index: 1001;
+        cursor: pointer;
+        position: relative;
+    }
+
+    /* Las líneas individuales */
+    .linea-menu {
+        width: 35px;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+
+    .hamburguesa-activa .linea-menu:nth-child(1) {
+        transform: translateY(5.5px) rotate(45deg);
+    }
+
+    .hamburguesa-activa .linea-menu:nth-child(2) {
+        transform: translateY(-5.5px) rotate(-45deg);
+    }
+
+    /* La lista de enlaces dentro del menú abierto */
+    .menu-paginas-abierto ul {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-fondo-hero);
+        padding: 75px 15px;
+        border: var(--acento-amarillo) solid 1px;
+        border-radius: 10px;
+        width: 100%;
+        height: 100vh;
+        z-index: 1000;
+    }
+
+    .menu-paginas-abierto ul li {
+        display: inline-block;
+        border: none;
+        text-align: right;
+        width: 100%;
+        background-color: transparent;
+    }
+
+    .menu-paginas-abierto ul li:last-of-type {
+        background-color: var(--acento-amarillo);
+        width: fit-content;
+        margin-left: auto;
+    }
+
+    .menu-paginas-abierto ul li:hover {
+        transform: none;
+    }
+
+    /* Estilos al hero */
+    .hero {
+        height: auto;
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: var(--texto-h1-tablet);
+    }
+
+    .hero img {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        width: 60%;
+        height: auto;
+    }
+
+    .container-btn-hero {
+        margin: 3% auto 5%;
+        transition: all 0.5s linear;
+        display: block;
+    }
+
+    .btn-hero {
+        box-shadow: var(--sombra-neon-amarilla);
+        background-color: var(--acento-amarillo);
+        border-radius: 20px;
+        padding: 15px 25px;
+        color: black;
+        font-weight: bold;
+        margin-top: 50px;
+    }
+
+    /* Estilos a las tarjetas de la seccion 1*/
+    .tarjetas {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        height: auto;
+        max-width: 90%;
+    }
+
+    /* Estilos a los servicios */
+    .tarjetas-servicios img,
+    .servicio-asesorias img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .tarjeta-curso {
+        height: auto;
+        align-self: start;
+    }
+
+    .servicio-tarjeta {
+        align-self: flex-start;
+        width: 85%;
+        margin: 0 auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tarjetas-servicios {
+        margin-top: 5%;
+        grid-template-columns: 1fr;
+    }
+
+    .servicio-asesorias {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: space-around;
+        flex-basis: 40%;
+        align-items: center;
+        border: solid 1px var(--acento-amarillo);
+        padding: 15px 20px;
+        border-radius: 20px;
+    }
+
+    .servicio-tarjeta-texto {
+        margin: 0 auto;
+        text-align: center !important;
+        width: 90%;
+    }
+
+    .servicio-tarjeta-texto h3 {
+        text-align: center !important;
+    }
+
+    .servicio-tarjeta-texto hr {
+        margin: 0 auto 2%;
+    }
+
+    /* Estilos a la seccion "MI experiencia"*/
+    .container-experiencia {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+        width: 80%;
+    }
+
+    .section2,
+    .section4,
+    .section6 {
+        padding-top: 5%;
+    }
+
+    /* Estilos a los planes */
+    .planes {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        width: 60%;
+        margin: 5% auto;
+    }
+
+    /* Estilos a la seccion de preguntas frecuentes */
+    .preguntas {
+        width: 85%;
+        margin: 5% 0 0;
+    }
+
+    /* Estilos al CTA */
+    .cta {
+        width: 100%;
+    }
+
+    /* Responsive del Formulario */
+    .contenido-formulario {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .btn-formulario button {
+        font-size: 1.05rem;
+    }
+
+    .contenedor-incluido-asesoria {
+        overflow-x: hidden;
+        margin: 0 auto;
+        width: 100% !important;
+        grid-template-columns: 1fr;
+    }
 }
 
 
@@ -1924,7 +2192,6 @@ footer a:hover {
     /* Ocultamos el menu de la version escritorio */
     .menu-paginas {
         display: none;
-        opacity: 0;
     }
 
     .logo {
@@ -1964,7 +2231,7 @@ footer a:hover {
         height: 3px;
         background-color: white;
         border-radius: 2px;
-        transition: 0.3s all ease;
+        transition: all 0.3s ease;
     }
 
     /* Transformación a X */
@@ -2035,7 +2302,7 @@ footer a:hover {
 
     .container-btn-hero {
         margin: 10% auto;
-        transition: 0.5s all linear;
+        transition: all 0.5s linear;
         display: block;
     }
 
@@ -2119,10 +2386,14 @@ footer a:hover {
 
     .img-div1 img {
         width: 100%;
-        height: 300px;
+        height: 300px !important;
         object-fit: cover;
         object-position: center 28%;
         border-radius: 25px;
+    }
+
+    .servicio-tarjeta {
+        width: 95%;
     }
 
     .servicio-tarjeta-texto {
@@ -2152,14 +2423,24 @@ footer a:hover {
 
     /* Estilos al carrusel */
     .carrusel {
-        width: 100%;
+        width: 500px;
+        max-width: 80%;
+        gap: 10px;
+        /* Reducimos el espacio entre botones para que quepan */
     }
 
     .img-cambiosFisicos img {
         background-color: var(--acento-amarillo);
         border-radius: 10px;
-        width: 95%;
+        max-width: 100%;
+        /* La imagen se ajusta al ancho de la tarjeta */
         object-fit: cover;
+
+    }
+
+    .img-cambiosFisicos {
+        height: 250px;
+        overflow: hidden;
     }
 
     /* SECTION 4 - Mi Experiencia */
@@ -2345,253 +2626,5 @@ footer a:hover {
         display: flex;
         flex-direction: column;
         text-align: center;
-    }
-}
-
-
-/* RESPONSIVE TABLET */
-
-@media (min-width: 768px) and (max-width: 1280px) {
-
-    /* Estilos generales */
-    h1 {
-        font-size: var(--texto-h1-tablet);
-    }
-
-    p,
-    li,
-    a {
-        font-size: var(--texto-p-tablet);
-    }
-
-    h2 {
-        font-size: var(--texto-h2-tablet);
-    }
-
-    h3 {
-        font-size: var(--texto-h3-tablet);
-    }
-
-    .container-titulos-sections {
-        width: 100%;
-        justify-content: center;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .container-titulos-sections p {
-        width: 95%;
-        justify-content: center;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    /* Estilos al menu */
-    .svg-menu-hamburguesa {
-        fill: white;
-        display: block;
-        width: 60px;
-        height: 70px;
-    }
-
-    .logo {
-        width: auto;
-    }
-
-    .svg-menu-hamburguesa-cerrar {
-        display: none;
-    }
-
-    .menu-paginas {
-        display: none;
-        opacity: 0;
-    }
-
-
-    .menu {
-        padding-left: 5%;
-        padding-right: 5%;
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-    }
-
-    .menu-paginas-abierto {
-        display: block;
-        opacity: 1;
-        position: absolute;
-        top: 100px;
-        right: 5%;
-        z-index: 10;
-    }
-
-    .menu-paginas-abierto ul {
-        display: flex;
-        flex-direction: column;
-        background-color: var(--color-fondo-hero);
-        padding: 18px 15px;
-        border: var(--acento-amarillo) solid 1px;
-        border-radius: 10px;
-        right: 0;
-        width: 100%;
-        z-index: 1000;
-        animation: menuDesplegarse 0.5s ease forwards;
-        /* animación definida en la versión movil*/
-
-    }
-
-    .menu-paginas-abierto ul li {
-        font-size: var(--texto-p-movil);
-        text-align: right;
-        width: 100%;
-        border: 0;
-        background-color: transparent;
-    }
-
-    /* Estilos al hero */
-    .hero {
-        height: auto;
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: var(--texto-h1-tablet);
-    }
-
-    .hero img {
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        width: 60%;
-        height: auto;
-    }
-
-    .container-btn-hero {
-        margin: 3% auto 5%;
-        transition: 0.5s all linear;
-        display: block;
-    }
-
-    .btn-hero {
-        box-shadow: var(--sombra-neon-amarilla);
-        background-color: var(--acento-amarillo);
-        border-radius: 20px;
-        padding: 15px 25px;
-        color: black;
-        font-weight: bold;
-        margin-top: 50px;
-    }
-
-    /* Estilos a las tarjetas de la seccion 1*/
-    .tarjetas {
-        grid-template-columns: 1fr;
-        gap: 50px;
-        height: auto;
-        max-width: 90%;
-    }
-
-    /* Estilos a los servicios */
-    .tarjetas-servicios img,
-    .servicio-asesorias img {
-        width: 100%;
-        height: 500px;
-        object-fit: cover;
-    }
-
-    .tarjeta-curso {
-        height: auto;
-        align-self: start;
-    }
-
-    .servicio-tarjeta {
-        align-self: flex-start;
-        width: 85%;
-        margin: 0 auto;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .tarjetas-servicios {
-        margin-top: 5%;
-        grid-template-columns: 1fr;
-    }
-
-    .servicio-asesorias {
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        justify-content: space-around;
-        flex-basis: 40%;
-        align-items: center;
-        border: solid 1px var(--acento-amarillo);
-        padding: 15px 20px;
-        border-radius: 20px;
-    }
-
-    .servicio-tarjeta-texto {
-        margin: 0 auto;
-        text-align: center !important;
-        width: 90%;
-    }
-
-    .servicio-tarjeta-texto h3 {
-        text-align: center !important;
-    }
-
-    .servicio-tarjeta-texto hr {
-        margin: 0 auto 2%;
-    }
-
-    /* Estilos a la seccion "MI experiencia"*/
-    .container-experiencia {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 50px;
-        width: 80%;
-    }
-
-    .section2,
-    .section4,
-    .section6 {
-        padding-top: 5%;
-    }
-
-    /* Estilos a los planes */
-    .planes {
-        grid-template-columns: 1fr;
-        justify-content: center;
-        width: 60%;
-        margin: 5% auto;
-    }
-
-    /* Estilos a la seccion de preguntas frecuentes */
-    .preguntas {
-        width: 85%;
-        margin: 5% 0 0;
-    }
-
-    /* Estilos al CTA */
-    .cta {
-        width: 100%;
-    }
-
-    /* Responsive del Formulario */
-    .contenido-formulario {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .btn-formulario button {
-        font-size: 1.05rem;
-    }
-
-    .contenedor-incluido-asesoria {
-        overflow-x: hidden;
-        margin: 0 auto;
-        width: 100% !important;
-        grid-template-columns: 1fr;
     }
 }
