@@ -727,7 +727,9 @@ a {
 /* estilos al nombre de cada persona del cambio fisico */
 .testimoniosNombre {
     margin-top: 2%;
+    padding: 10px 0;
     font-size: 1.75rem;
+    text-align: center;
 }
 
 .carrusel {
@@ -735,7 +737,7 @@ a {
     justify-content: center;
     align-items: center;
     gap: 15px;
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
 }
 
@@ -754,6 +756,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 10px 0;
     border: 2px solid var(--acento-amarillo);
     border-radius: 20px;
     background-color: var(--color-fondo-hero);
@@ -764,8 +767,8 @@ a {
 .img-cambiosFisicos img {
     background-color: var(--acento-amarillo);
     border-radius: 10px;
-    width: 70%;
-    height: 450px;
+    width: 90%;
+    height: 350px;
     object-fit: cover;
 }
 
@@ -2329,8 +2332,8 @@ footer a:hover {
 
     /* Estilos al carrusel */
     .carrusel {
-        width: 40%;
-        max-width: 80%;
+        width: 45%;
+        max-width: 50%;
         gap: 10px;
         /* Reducimos el espacio entre botones para que quepan */
     }
@@ -2338,15 +2341,21 @@ footer a:hover {
     .img-cambiosFisicos img {
         background-color: var(--acento-amarillo);
         border-radius: 10px;
-        width: 85%;
-        /* La imagen se ajusta al ancho de la tarjeta */
         object-fit: cover;
 
+    }
+
+    .testimoniosNombre {
+        font-size: 1.3rem;
     }
 
     .img-cambiosFisicos {
         height: 250px;
         overflow: hidden;
+    }
+
+    .carrusel-btn {
+        padding: 5px;
     }
 
     /* SECTION 4 - Mi Experiencia */
