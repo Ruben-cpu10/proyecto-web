@@ -1136,17 +1136,41 @@ a {
 
 /* Estilos al footer */
 footer {
-    padding: 65px 0 22px;
+    position: relative;
+    padding: 5% 0 2%;
     background-color: var(--color-fondo-hero);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    clip-path: polygon(50% 30%, 100% 13%, 100% 35%, 100% 70%, 100% 100%, 50% 100%, 0 100%, 0% 70%, 0% 35%, 0 13%);
 }
 
 footer h2 {
     text-align: left;
+}
+
+/* Estilos de la Ola Superior */
+.wave-ola-footer {
+    position: absolute;
+    /* para poder posicionarla arriba del footer*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave-ola-footer svg {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 60px;
+    /* Altura de la ola */
+}
+
+.wave-ola-footer .shape-fill {
+    fill: black;
+    /* color de la ola */
 }
 
 /* estilos al contendor de lso iconos de las redes sociales */
@@ -1870,7 +1894,7 @@ footer a:hover {
     padding: 5%;
     width: 60%;
     border-radius: 10px;
-    margin: 0 auto;
+    margin: 3% auto;
     display: flex;
     flex-direction: column;
     gap: 40px;
