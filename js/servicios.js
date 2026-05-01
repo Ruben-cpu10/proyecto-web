@@ -2,7 +2,7 @@
 
 // Primero antes de empezar delcaramos variables necesarias para poder tener cada boton y cada articulo
 let pestañas = document.querySelectorAll('.pestaña-curso')
-let contenidoPestañas = document.querySelectorAll('.curso-perdidaGrasa, .curso-ganancia-de-masa-muscular, .curso-nutrición')
+let contenidoPestañas = document.querySelectorAll('.curso-perdidaGrasa, .curso-ganancia-de-masa-muscular, .curso-nutricion')
 
 // Como quiero que se muestre primero solo el primer boton (perdida de grasa), junto con su contenido.
 pestañas[0].classList.add('visible')
