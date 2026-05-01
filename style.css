@@ -113,8 +113,6 @@ body {
     background-color: black;
 }
 
-
-
 /* estilos a todos los h1 */
 h1,
 h2,
@@ -192,7 +190,6 @@ a {
 
 .container-menu {
     position: sticky;
-    /* lo ponemos que este pegajoso */
     top: 0;
     /* lo ponemos anclado arriba del todo de la web*/
     z-index: 1000;
@@ -1341,7 +1338,7 @@ footer a:hover {
 }
 
 /* estilos para los inputs de radios */
-.container-formulario input[type="radio"] {
+.container-formulario .radio-input {
     appearance: none;
     width: 20px;
     height: 20px;
@@ -1354,12 +1351,12 @@ footer a:hover {
 }
 
 /* estilos a los radios cuando se seleccionan */
-.container-formulario input[type="radio"]:checked {
+.container-formulario .radio-input:checked {
     border-color: var(--acento-amarillo);
 }
 
 /* estilos al circulo de dentro cuando se seleccionan */
-.container-formulario input[type="radio"]:checked::after {
+.container-formulario .radio-input:checked::after {
     content: "";
     position: absolute;
     /* se pone absoluto al input que tiene el relative*/
@@ -1485,7 +1482,6 @@ footer a:hover {
     gap: 10px;
 }
 
-
 /* Estilos a la sección de "asesoria" */
 .asesoria {
     margin: 3% auto;
@@ -1586,7 +1582,6 @@ footer a:hover {
 
 /* Estilos a los Cursos */
 
-
 /* estilos al contenedor de las pestañas */
 .pestañas-cursos {
     display: flex;
@@ -1620,16 +1615,6 @@ footer a:hover {
     font-weight: bold;
 }
 
-/* Estilos a los articulos de los cursos (el contenido de cada curso)*/
-
-.curso-perdidaGrasa.visible,
-.curso-ganancia-de-masa-muscular.visible,
-.curso-nutricion.visible {
-    display: flex;
-    /* se ve cuando el js le ponga la clase .activo */
-}
-
-
 /* Estilos a los cursos */
 .curso-perdidaGrasa,
 .curso-ganancia-de-masa-muscular,
@@ -1639,6 +1624,16 @@ footer a:hover {
     flex-direction: column;
     gap: 20px;
 
+}
+
+
+/* Estilos a los articulos de los cursos (el contenido de cada curso)*/
+
+.curso-perdidaGrasa.visible,
+.curso-ganancia-de-masa-muscular.visible,
+.curso-nutricion.visible {
+    display: flex;
+    /* se ve cuando el js le ponga la clase .activo */
 }
 
 /* Estilos a los h3 de los 3 cursos*/
@@ -1955,14 +1950,14 @@ footer a:hover {
     }
 
     .container-titulos-sections {
-        width: 100%;
+        width: 90%;
         justify-content: center;
         margin: 0 auto;
         text-align: center;
     }
 
     .container-titulos-sections p {
-        width: 95%;
+        width: 90%;
         justify-content: center;
         margin: 0 auto;
         text-align: center;
@@ -2053,14 +2048,13 @@ footer a:hover {
         display: inline-block;
         border: none;
         text-align: right;
-        width: 100%;
+        width: fit-content;
         background-color: transparent;
+        margin-left: auto;
     }
 
     .menu-paginas-abierto ul li:last-of-type {
         background-color: var(--acento-amarillo);
-        width: fit-content;
-        margin-left: auto;
     }
 
     .menu-paginas-abierto ul li:hover {
