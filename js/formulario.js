@@ -12,7 +12,7 @@ botonEnviarFormulario.addEventListener('click', function (e) {
     let nombre = document.querySelector('#nombre-apellidos').value
     let email = document.querySelector('#email').value
     let objetivo = document.querySelector('#objetivo-fisico').value
-    let plan = document.querySelector('#plan').value
+    let plan = document.querySelector('input[name="plan"]:checked').value // aqui recogemos el input que tiene el name "plan" y que el que esta seleccionado
     let extras = document.querySelector('#extras').value
     let mensaje = document.querySelector('#mensaje').value
     let camposRequeridos = document.querySelectorAll('.input-requerido')

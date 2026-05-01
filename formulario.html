@@ -35,13 +35,13 @@
     </header>
     <main>
         <section class="hero-formulario">
-            <h3 class="encabezados">- Toma Acción -</h3>
-            <h1>Formulario</h1>
-            <h3>Rellena este formulario para poder trabajar 1:1 conmigo en marcha de tu cambio físico.</h3>
-            <p>*Tras rellenar el formulario y confirmar el pago correctamente, en las 24/48h siguientes se te
-                informará
-                a
-                traves de WhatsApp para poder empezar con tu cambio físico*</p>
+            <div class="contenedor-hero-formulario">
+                <h3 class="encabezados">- Toma Acción -</h3>
+                <h1>Formulario</h1>
+                <h3>Rellena este formulario para poder trabajar 1:1 conmigo en marcha de tu cambio físico.</h3>
+                <p>*Tras rellenar el formulario y confirmar el pago correctamente, en las 24/48h siguientes se te
+                    informará a traves de WhatsApp para poder empezar con tu cambio físico*</p>
+            </div>
         </section>
         <div class="contenido-formulario">
             <div class="img-formulario oculto">
@@ -76,12 +76,21 @@
                             </select>
                         </div>
                         <div class="campos">
-                            <label for="plan">Plan de Interés*</label>
-                            <select class="input-campos input-requerido" id="plan" required>
-                                <option value="Mensual">Plan Mensual (40€)</option>
-                                <option value="Trimestral">Plan Trimestral (99€)</option>
-                                <option value="Anual">Plan Anual (340€)</option>
-                            </select>
+                            <label>Plan de Interés*</label>
+                            <div class="opciones-radio">
+                                <label class="radio-label">
+                                    <input type="radio" name="plan" value="Mensual" required checked>
+                                    Plan Mensual (40€)
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="plan" value="Trimestral">
+                                    Plan Trimestral (99€)
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="plan" value="Anual">
+                                    Plan Anual (340€)
+                                </label>
+                            </div>
                         </div>
                         <div class="campos">
                             <label for="extras">Extras</label>
@@ -126,9 +135,12 @@
             </ul>
         </div>
         <div class="rrss">
-            <a href="https://www.instagram.com/16.ruben__/" target="_blank" aria-label="Instagram"><i class="ri-instagram-fill redes-sociales intagram"></i></a>
-            <a href="https://www.tiktok.com/@rubendev" target="_blank" aria-label="TikTok"><i class="ri-tiktok-fill redes-sociales tiktok"></i></a>
-            <a href="https://www.youtube.com/@rubendev" target="_blank" aria-label="YouTube"><i class="ri-youtube-fill redes-sociales youtube"></i></a>
+            <a href="https://www.instagram.com/16.ruben__/" target="_blank" aria-label="Instagram"><i
+                    class="ri-instagram-fill redes-sociales intagram"></i></a>
+            <a href="https://www.tiktok.com/@rubendev" target="_blank" aria-label="TikTok"><i
+                    class="ri-tiktok-fill redes-sociales tiktok"></i></a>
+            <a href="https://www.youtube.com/@rubendev" target="_blank" aria-label="YouTube"><i
+                    class="ri-youtube-fill redes-sociales youtube"></i></a>
         </div>
     </footer>
 

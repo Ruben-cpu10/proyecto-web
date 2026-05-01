@@ -315,7 +315,6 @@ a {
 
 .btn-hero:hover {
     transform: rotate(-2deg) scale(1.05);
-    transition: 0.3s;
 }
 
 /* Estilos a las palabras que quiero que se destaquen */
@@ -507,7 +506,7 @@ a {
     display: grid;
     gap: 35px;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto;
+
 }
 
 /* Tarjeta de asesorías 1:1 */
@@ -706,7 +705,6 @@ a {
 
 .servicio-tarjeta-boton a:hover {
     transform: rotate(2deg) scale(1.05);
-    transition: 0.3s;
 }
 
 /* SECTION 3 - Testimonios */
@@ -1019,14 +1017,12 @@ a {
 .titulo-preguntas:hover {
     background-color: var(--color-fondo-hero);
     transform: scale(1.02);
-    transition: 0.2s;
 }
 
 .titulo-preguntas.titulo-activo {
     background-color: var(--acento-amarillo);
     color: black;
     transform: scale(1.02);
-    transition: 0.2s;
 }
 
 /* Estilos al icono +*/
@@ -1133,9 +1129,9 @@ a {
 }
 
 /* estilos al boton cuando aparezca (clase puesta en js) */
-.btn-volverArriba-aparecer {
-    opacity: 1 !important;
-    visibility: visible !important;
+#btn-arriba.btn-volverArriba-aparecer {
+    opacity: 1;
+    visibility: visible;
 }
 
 
@@ -1199,13 +1195,21 @@ footer a:hover {
     background: radial-gradient(circle, rgba(18, 18, 18, 1) 0%, rgba(30, 30, 30, 1) 100%);
     /* fondo con un degradado sacado de "https://cssgradient.io/ */
     width: 100%;
-    height: 85vh;
+    height: 65vh;
     text-align: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 93%, 80% 96%, 50% 100%, 23% 96%, 0 93%, 0% 35%, 0 0);
+}
+
+.contenedor-hero-formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+    width: 80%;
 }
 
 .hero-formulario h1 {
@@ -1304,13 +1308,10 @@ footer a:hover {
     color: var(--color-texto-gris);
 }
 
-/* estilos a todos los inputs, select y text areas tanto en normal como cuando esta válido*/
-.container-formulario input,
+/* estilos a todos los inputs, select y text areas*/
+.container-formulario input:not([type="radio"]),
 .container-formulario select,
-.container-formulario textarea,
-.container-formulario input:valid,
-.container-formulario select:valid,
-.container-formulario textarea:valid {
+.container-formulario textarea {
     background-color: black;
     width: 100%;
     color: var(--color-texto-gris);
@@ -1318,6 +1319,60 @@ footer a:hover {
     padding: 15px;
     border: 2px solid gray;
     border-radius: 10px;
+}
+
+/* Estilos para los inputs de radios */
+.opciones-radio {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 0;
+}
+
+/* estilos para los labels de los radios */
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: var(--texto-p);
+    color: var(--color-texto-gris);
+    font-family: var(--fuente-textos);
+}
+
+/* estilos para los inputs de radios */
+.container-formulario input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid gray;
+    border-radius: 50%;
+    background-color: black;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+/* estilos a los radios cuando se seleccionan */
+.container-formulario input[type="radio"]:checked {
+    border-color: var(--acento-amarillo);
+}
+
+/* estilos al circulo de dentro cuando se seleccionan */
+.container-formulario input[type="radio"]:checked::after {
+    content: "";
+    position: absolute;
+    /* se pone absoluto al input que tiene el relative*/
+    top: 50%;
+    /* centrado verticalmente*/
+    left: 50%;
+    /* centrado horizontalmente */
+    transform: translate(-50%, -50%);
+    /* necesario para que este bien centrado respecto a su relative*/
+    width: 10px;
+    height: 10px;
+    background-color: var(--acento-amarillo);
+    border-radius: 50%;
 }
 
 /* estilos a todos los placeholders*/
@@ -1357,9 +1412,7 @@ footer a:hover {
 
 .btn-formulario button:hover {
     box-shadow: var(--sombra-neon-amarilla);
-    border: none;
     transform: scale(1.03) rotate(-1deg);
-    transition: all 0.3s ease;
 }
 
 .mensaje-formulario {
@@ -1395,8 +1448,8 @@ footer a:hover {
 }
 
 .contenido-hero-servicios {
-    z-index: 10;
-    /* para que quede por encima de la capa negra*/
+    position: relative;
+    z-index: 1;
     width: 70%;
     margin: 0 auto;
     display: flex;
@@ -1476,14 +1529,14 @@ footer a:hover {
 .incluido2.oculto,
 .incluido3.oculto {
     opacity: 0;
-    transform: translateY(-100px);
+    transform: translateX(-150px);
 }
 
 .incluido4.oculto,
 .incluido5.oculto,
 .incluido6.oculto {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateX(150px);
 }
 
 .incluido1.visible,
@@ -1493,7 +1546,7 @@ footer a:hover {
 .incluido5.visible,
 .incluido6.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
 /* estilos a las tarjetas */
@@ -1773,15 +1826,13 @@ footer a:hover {
     border-radius: 20px;
     border: none;
     cursor: pointer;
-    transition: all 1s ease;
+    transition: all 0.5s ease;
     color: black;
 }
 
 .btn-enviar-dossier:hover {
     box-shadow: var(--sombra-neon-amarilla);
-    border: none;
-    transform: scale(1.1) rotate(-1deg);
-    transition: all 0.5s ease;
+    transform: scale(1.05) rotate(-1deg);
 }
 
 
@@ -1849,6 +1900,15 @@ footer a:hover {
 
 .contenido-legal ul {
     margin: 1% 4%;
+}
+
+.contenido-legal a {
+    color: var(--acento-amarillo);
+}
+
+.contenido-legal a:hover {
+    color: var(--color-texto-gris);
+    text-decoration: underline;
 }
 
 
@@ -2050,11 +2110,17 @@ footer a:hover {
     }
 
     /* Estilos a los servicios */
-    .tarjetas-servicios img,
-    .servicio-asesorias img {
+    .tarjetas-servicios img {
         width: 100%;
-        height: 200px;
         object-fit: cover;
+    }
+
+    .servicio-asesorias img {
+        height: 500px;
+    }
+
+    .tarjeta-curso img {
+        height: 300px;
     }
 
     .tarjeta-curso {
@@ -2080,7 +2146,6 @@ footer a:hover {
         width: 80%;
         display: flex;
         flex-direction: column;
-        align-content: center;
         justify-content: space-around;
         flex-basis: 40%;
         align-items: center;
@@ -2091,12 +2156,12 @@ footer a:hover {
 
     .servicio-tarjeta-texto {
         margin: 0 auto;
-        text-align: center !important;
+        text-align: center;
         width: 90%;
     }
 
     .servicio-tarjeta-texto h3 {
-        text-align: center !important;
+        text-align: center;
     }
 
     .servicio-tarjeta-texto hr {
@@ -2137,6 +2202,15 @@ footer a:hover {
     }
 
     /* Responsive del Formulario */
+    .hero-formulario {
+        height: 50vh;
+    }
+
+    .img-formulario {
+        display: flex;
+        justify-content: center;
+    }
+
     .contenido-formulario {
         display: grid;
         grid-template-columns: 1fr;
@@ -2150,7 +2224,7 @@ footer a:hover {
     .contenedor-incluido-asesoria {
         overflow-x: hidden;
         margin: 0 auto;
-        width: 100% !important;
+        width: 100%;
         grid-template-columns: 1fr;
     }
 }
@@ -2162,19 +2236,24 @@ footer a:hover {
 
     /* GENERAL */
 
-    h1 {
-        font-size: var(--texto-h1-movil) !important;
+    h1,
+    .contenido-servicios h1 {
+        font-size: var(--texto-h1-movil);
     }
 
-    h2 {
-        font-size: var(--texto-h2-movil) !important;
+    h2,
+    .titulos-secciones,
+    .section3 h2,
+    .contenido-servicios h2,
+    .contenido-legal h2 {
+        font-size: var(--texto-h2-movil);
     }
 
     /* estilos al titulos de todas las secciones */
     .titulos-secciones {
         width: 95%;
         margin: 0 auto;
-        text-align: center !important;
+        text-align: center;
     }
 
     /* Estilos al menú (heredadol del media query de tablet) */
@@ -2295,7 +2374,7 @@ footer a:hover {
 
     .img-div1 img {
         width: 100%;
-        height: 300px !important;
+        height: 300px;
         object-fit: cover;
         object-position: center 28%;
         border-radius: 25px;
@@ -2473,13 +2552,6 @@ footer a:hover {
 
     .hero-servicios {
         height: 80vh;
-    }
-
-    .contenedor-incluido-asesoria {
-        overflow-x: hidden;
-        margin: 0 auto;
-        width: 100% !important;
-        grid-template-columns: 1fr;
     }
 
     .contenido-asesoria {

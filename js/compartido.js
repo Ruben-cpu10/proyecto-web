@@ -17,11 +17,11 @@ const btnSubir = document.getElementById('btn-arriba')
 if (btnSubir) {
     window.addEventListener('scroll', () => {
 
-        // Calculamos cuanto ha bajado el usuario en la web
+        // Calculamos cuanto se a bajado en la web
         let progresoPantalla = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100 // * 100 para que nos salga en %
 
-        // Creamos un if para que salga el boton cuando el usuario baje una parte de la pantalla
-        if (progresoPantalla >= 30) { // si el calculo del progreso de la pantalla sale >= 20 ocurre:
+        // Creamos un if para que salga el boton cuando se baje una parte de la pantalla
+        if (progresoPantalla >= 30) { // si el calculo del progreso de la pantalla sale >= 30 ocurre:
             btnSubir.classList.add('btn-volverArriba-aparecer') // se le añade la clase "btn-volverArriba-aparecer" 
         } else {
             btnSubir.classList.remove('btn-volverArriba-aparecer') // si no, se le borra la clase
@@ -29,7 +29,7 @@ if (btnSubir) {
 
     })
 
-    // La accion que debe de ocurrir cuando el boton se pulse el botón
+    // La accion que debe de ocurrir cuando se pulse el botón
     btnSubir.addEventListener('click', () => { // añadimos un evento que escuche el clic
         window.scrollTo({ top: 0, behavior: 'smooth' }) // cuando se haga el clic, se va el scroll de la pantlla hacia arriba del todo 
     })
@@ -46,12 +46,12 @@ if (elementosOcultos.length > 0) { // primero se comprueba si hay alguna element
 
         elementosDetectados.forEach(elementoDetectadoIndividual => { // Y por cada elemento que detecte
             if (elementoDetectadoIndividual.isIntersecting) { // y si esta en la pantalla (isIntersecting)
-                elementoDetectadoIndividual.target.classList.add('visible') // se ejecuta esto, que es que se añade la clase 'visible'
+                elementoDetectadoIndividual.target.classList.add('visible') // se ejecuta esto, que es que se añade la clase visible
 
                 // dejamos de observarlo cuando ya lo haya mostrado
                 observer.unobserve(elementoDetectadoIndividual.target)
 
-                // Ahora lo que hacemos es que cuando se le de la clase 'visible' espere 1 segundo y luego se le de la clase 'terminado' para que no se solapen el tiempo de la animacion de scroll con los de los hovers
+                // Ahora lo que hacemos es que cuando se le de la clase visible espere 1 segundo y luego se le de la clase terminado para que no se solapen el tiempo de la animacion de scroll con los de los hovers
                 setTimeout(() => {
                     elementoDetectadoIndividual.target.classList.add('terminado')
                 }, 1000)
@@ -59,7 +59,7 @@ if (elementosOcultos.length > 0) { // primero se comprueba si hay alguna element
         })
     })
 
-    // hacemos que vigile los elementos de la lista definida aqui => let elemetosOcultos = document.querySelectorAll('.oculto')
+    // hacemos que vigile los elementos de la lista definida aqui: let elemetosOcultos = document.querySelectorAll('.oculto')
     elementosOcultos.forEach(elementoOculto => { // por cada elemento de esta lista
         observer.observe(elementoOculto) // le decimos al observer que vigile a cada elemento oculto par que se active luego el bloque anterior 
     })
